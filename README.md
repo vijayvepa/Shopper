@@ -20,7 +20,7 @@ Setup
 
 - Shopping list tab 
 - Coupons tab 
-- Returns tab <!-- TOC -->
+- Returns tab 
 
 
 - Sharing tab (optional)
