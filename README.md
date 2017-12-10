@@ -1,5 +1,7 @@
 # 1. Shopping List
 
+<!-- TOC -->
+
 - [1. Shopping List](#1-shopping-list)
     - [1.1. Vision](#11-vision)
         - [1.1.1. Setup](#111-setup)
@@ -11,7 +13,6 @@
         - [1.1.2. Use](#112-use)
 
 <!-- /TOC -->
-
 
 ## 1.1. Vision
 
