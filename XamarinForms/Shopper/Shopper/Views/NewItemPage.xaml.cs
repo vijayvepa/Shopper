@@ -6,13 +6,13 @@ namespace Shopper
 {
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public ShoppingItem Item { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Item = new ShoppingItem
             {
                 Text = "Item name",
                 Description = "This is an item description."

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopper.Droid", "Droid\Shop
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopper.MobileAppService", "MobileAppService\Shopper.MobileAppService.csproj", "{D9D47236-F1D6-445C-976B-2FAB6F3CAAF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinForms.Extensions", "XamarinForms.Extensions\XamarinForms.Extensions.csproj", "{D5016C89-028D-4958-9202-0019631D8424}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|iPhoneSimulator = Debug|iPhoneSimulator
@@ -55,5 +57,17 @@ Global
 		{D9D47236-F1D6-445C-976B-2FAB6F3CAAF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9D47236-F1D6-445C-976B-2FAB6F3CAAF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9D47236-F1D6-445C-976B-2FAB6F3CAAF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Release|iPhone.Build.0 = Release|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5016C89-028D-4958-9202-0019631D8424}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

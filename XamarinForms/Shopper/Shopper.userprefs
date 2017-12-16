@@ -1,12 +1,29 @@
 ﻿<Properties StartupConfiguration="{CEC00F4F-E019-447E-9E19-DAE9457644D4}|Default">
-  <MonoDevelop.Ide.Workbench />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Shopper/Views/MainPage.cs">
+    <Files>
+      <File FileName="Shopper/Views/MainPage.cs" Line="27" Column="8" />
+      <File FileName="Shopper/Views/TodayPage.xaml" Line="27" Column="1" />
+      <File FileName="Shopper/Views/TodayPage.xaml.cs" Line="42" Column="40" />
+      <File FileName="Shopper/App.xaml" Line="19" Column="1" />
+      <File FileName="Shopper/Views/NewItemPage.xaml" Line="15" Column="1" />
+      <File FileName="Shopper/Views/SetupPage.xaml" Line="61" Column="1" />
+      <File FileName="Shopper/Views/ItemDetailPage.xaml" Line="8" Column="1" />
+      <File FileName="Shopper/ViewModels/TodayViewModel.cs" Line="32" Column="1" />
+      <File FileName="Shopper/Services/MockDataStore.cs" Line="17" Column="30" />
+      <File FileName="Shopper/ViewModels/BaseViewModel.cs" Line="15" Column="21" />
+      <File FileName="Shopper/Models/ShoppingItem.cs" Line="18" Column="6" />
+      <File FileName="Shopper/ViewModels/ItemDetailViewModel.cs" Line="1" Column="1" />
+      <File FileName="Droid/Assets/AboutAssets.txt" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="19" Column="6" />
+      <File FileName="XamarinForms.Extensions/Controls/CheckBox.cs" Line="14" Column="34" />
+      <File FileName="Shopper/Views/SetupPage.xaml.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Shopper.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7EF6010E-A36D-4C02-AA05-95E7B4080991">
-    <MonoDevelop.MacDev.AppleDevelopmentTeam />
-  </MonoDevelop.Ide.ItemProperties.Shopper.iOS>
+  <MonoDevelop.Ide.ItemProperties.Shopper.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.b1ad50cc484e8d67ee7e25bcbaf3fcb1e190f98f" />
   <MultiItemStartupConfigurations />
 </Properties>

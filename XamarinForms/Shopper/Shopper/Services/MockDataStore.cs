@@ -5,21 +5,18 @@ using System.Threading.Tasks;
 
 namespace Shopper
 {
-    public class MockDataStore : IDataStore<Item>
+    public class MockDataStore : IDataStore<ShoppingItem>
     {
-        List<Item> items;
+        List<ShoppingItem> items;
 
         public MockDataStore()
         {
-            items = new List<Item>();
-            var mockItems = new List<Item>
+            items = new List<ShoppingItem>();
+            var mockItems = new List<ShoppingItem>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
+                new ShoppingItem { Id = Guid.NewGuid().ToString(), Text = "Tomatoes", Store="Aldi",  Description="This is an item description." },
+                new ShoppingItem { Id = Guid.NewGuid().ToString(), Text = "Dhaniyalu", Store="Indian Store", Description="This is an item description." },
+                new ShoppingItem { Id = Guid.NewGuid().ToString(), Text = "Oreck Tune Up", Store="Oreck", Description="This is an item description." },
             };
 
             foreach (var item in mockItems)
@@ -28,16 +25,16 @@ namespace Shopper
             }
         }
 
-        public async Task<bool> AddItemAsync(Item item)
+        public async Task<bool> AddItemAsync(ShoppingItem item)
         {
             items.Add(item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(Item item)
+        public async Task<bool> UpdateItemAsync(ShoppingItem item)
         {
-            var _item = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
+            var _item = items.Where((ShoppingItem arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(_item);
             items.Add(item);
 
@@ -46,18 +43,18 @@ namespace Shopper
 
         public async Task<bool> DeleteItemAsync(string id)
         {
-            var _item = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
+            var _item = items.Where((ShoppingItem arg) => arg.Id == id).FirstOrDefault();
             items.Remove(_item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<ShoppingItem> GetItemAsync(string id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<ShoppingItem>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
         }

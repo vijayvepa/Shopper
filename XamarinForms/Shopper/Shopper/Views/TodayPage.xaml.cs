@@ -6,20 +6,20 @@ using Xamarin.Forms;
 
 namespace Shopper
 {
-    public partial class ItemsPage : ContentPage
+    public partial class TodayPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        TodayViewModel viewModel;
 
-        public ItemsPage()
+        public TodayPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new TodayViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
+            var item = args.SelectedItem as ShoppingItem;
             if (item == null)
                 return;
 

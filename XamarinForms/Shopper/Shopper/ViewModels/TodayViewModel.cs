@@ -7,20 +7,21 @@ using Xamarin.Forms;
 
 namespace Shopper
 {
-    public class ItemsViewModel : BaseViewModel
+    public class TodayViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<ShoppingItem> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
+        private bool IsLoaded { get; set; }
 
-        public ItemsViewModel()
+        public TodayViewModel()
         {
-            Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Title = "Today";
+            Items = new ObservableCollection<ShoppingItem>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<NewItemPage, ShoppingItem>(this, "AddItem", async (obj, item) =>
             {
-                var _item = item as Item;
+                var _item = item as ShoppingItem;
                 Items.Add(_item);
                 await DataStore.AddItemAsync(_item);
             });
@@ -28,7 +29,7 @@ namespace Shopper
 
         async Task ExecuteLoadItemsCommand()
         {
-            if (IsBusy)
+            if (IsLoaded && IsBusy)
                 return;
 
             IsBusy = true;
@@ -41,6 +42,7 @@ namespace Shopper
                 {
                     Items.Add(item);
                 }
+                IsLoaded = true;
             }
             catch (Exception ex)
             {

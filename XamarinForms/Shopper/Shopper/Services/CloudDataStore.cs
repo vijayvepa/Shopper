@@ -9,42 +9,42 @@ using Plugin.Connectivity;
 
 namespace Shopper
 {
-    public class CloudDataStore : IDataStore<Item>
+    public class CloudDataStore : IDataStore<ShoppingItem>
     {
         HttpClient client;
-        IEnumerable<Item> items;
+        IEnumerable<ShoppingItem> items;
 
         public CloudDataStore()
         {
             client = new HttpClient();
             client.BaseAddress = new Uri($"{App.BackendUrl}/");
 
-            items = new List<Item>();
+            items = new List<ShoppingItem>();
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<ShoppingItem>> GetItemsAsync(bool forceRefresh = false)
         {
             if (forceRefresh && CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item");
-                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Item>>(json));
+                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<ShoppingItem>>(json));
             }
 
             return items;
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<ShoppingItem> GetItemAsync(string id)
         {
             if (id != null && CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item/{id}");
-                return await Task.Run(() => JsonConvert.DeserializeObject<Item>(json));
+                return await Task.Run(() => JsonConvert.DeserializeObject<ShoppingItem>(json));
             }
 
             return null;
         }
 
-        public async Task<bool> AddItemAsync(Item item)
+        public async Task<bool> AddItemAsync(ShoppingItem item)
         {
             if (item == null || !CrossConnectivity.Current.IsConnected)
                 return false;
@@ -56,7 +56,7 @@ namespace Shopper
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> UpdateItemAsync(Item item)
+        public async Task<bool> UpdateItemAsync(ShoppingItem item)
         {
             if (item == null || item.Id == null || !CrossConnectivity.Current.IsConnected)
                 return false;

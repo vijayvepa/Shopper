@@ -4,9 +4,9 @@ using Xamarin.Forms;
 
 namespace Shopper
 {
-    public partial class AboutPage : ContentPage
+    public partial class SetupPage : ContentPage
     {
-        public AboutPage()
+        public SetupPage()
         {
             InitializeComponent();
         }

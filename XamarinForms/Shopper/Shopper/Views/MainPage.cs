@@ -1,45 +1,36 @@
 ﻿using System;
-
 using Xamarin.Forms;
-
+using XamarinForms.Extensions.Controls;
 namespace Shopper
 {
     public class MainPage : TabbedPage
     {
+        private const string Today = "Today";
+        private const string Setup = "Setup";
+        private Checkbox Checkbox1 { get; set; }
+
+        private const string AboutPageIcon = "tab_about.png";
+        private const string FeedIcon = "tab_feed.png";
+
         public MainPage()
         {
-            Page itemsPage, aboutPage = null;
+            Page todayPage, setupPage;
 
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
-                    itemsPage = new NavigationPage(new ItemsPage())
-                    {
-                        Title = "Browse"
-                    };
-
-                    aboutPage = new NavigationPage(new AboutPage())
-                    {
-                        Title = "About"
-                    };
-                    itemsPage.Icon = "tab_feed.png";
-                    aboutPage.Icon = "tab_about.png";
+                    todayPage = new NavigationPage(new TodayPage()) {Title = Today, Icon = FeedIcon};
+                    setupPage = new NavigationPage(new SetupPage()) {Title = Setup, Icon = AboutPageIcon};
                     break;
+                    
                 default:
-                    itemsPage = new ItemsPage()
-                    {
-                        Title = "Browse"
-                    };
-
-                    aboutPage = new AboutPage()
-                    {
-                        Title = "About"
-                    };
+                    todayPage = new TodayPage() {Title = Today};
+                    setupPage = new SetupPage() {Title = Setup};
                     break;
             }
 
-            Children.Add(itemsPage);
-            Children.Add(aboutPage);
+            Children.Add(todayPage);
+            Children.Add(setupPage);
 
             Title = Children[0].Title;
         }
