@@ -5,12 +5,16 @@ namespace XamarinForms.Extensions.Controls
 {
     public class Checkbox : Button
     {
+        private const string NotDone = "☐";
+        private const string Done = "☑";
+
         public Checkbox()
         {
             //base.Image = "Assets/checkbox.png";
             base.Clicked += new EventHandler(OnClicked);
             base.BackgroundColor = Color.White;
-            base.Text = "Not Done";
+            base.TextColor = Color.Accent;
+            base.Text = NotDone;
             base.BorderWidth = 0;
         }
 
@@ -47,15 +51,13 @@ namespace XamarinForms.Extensions.Controls
             if (newValue != null && (Boolean)newValue == true)
             {
                 //((Checkbox)bindable).Image = "checkedimage.png";
-                checkbox.BackgroundColor = Color.Accent;
-                checkbox.Text = "Done";
+                checkbox.Text = Done;
             }
             else
             {
                 //((Checkbox)bindable).Image = "uncheckedimage.png";
 
-                checkbox.BackgroundColor = Color.White;
-                checkbox.Text = "Not Done";
+                checkbox.Text = NotDone;
             }
         }
 

@@ -1,29 +1,30 @@
 ﻿using System;
-
+using Shopper.Business;
+using Shopper.Business.Models;
 using Xamarin.Forms;
 
 namespace Shopper
 {
     public partial class NewItemPage : ContentPage
     {
-        public ShoppingItem Item { get; set; }
+        public string ShoppingText { get; set; }
+
 
         public NewItemPage()
         {
             InitializeComponent();
-
-            Item = new ShoppingItem
-            {
-                Text = "Item name",
-                Description = "This is an item description."
-            };
 
             BindingContext = this;
         }
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            var items = ShoppingItemsParser.Parse(ShoppingText);
+
+            foreach (var item in items)
+            {
+                MessagingCenter.Send(this, "AddItem", item);
+            }
             await Navigation.PopToRootAsync();
         }
     }

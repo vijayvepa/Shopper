@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Shopper.Business.Models;
 
 using Xamarin.Forms;
 

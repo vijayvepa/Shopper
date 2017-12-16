@@ -1,4 +1,5 @@
 ﻿using System;
+using Shopper.Business.Models;
 
 namespace Shopper
 {

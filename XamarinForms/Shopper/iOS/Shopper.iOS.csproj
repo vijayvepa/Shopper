@@ -139,6 +139,10 @@
       <Project>{d5016c89-028d-4958-9202-0019631d8424}</Project>
       <Name>XamarinForms.Extensions</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Shopper.Business\Shopper.Business.csproj">
+      <Project>{5742825F-D1E9-4AC5-A429-F9654727444C}</Project>
+      <Name>Shopper.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\Shopper\Shopper.projitems" Label="Shared" Condition="Exists('..\Shopper\Shopper.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
