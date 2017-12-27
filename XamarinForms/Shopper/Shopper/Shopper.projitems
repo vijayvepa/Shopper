@@ -31,6 +31,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\TodayPage.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LocalDataStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\HistoryPage.xaml.cs">
+      <DependentUpon>HistoryPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SetupPage.xaml" />
@@ -38,5 +41,9 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\TodayPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NewItemPage.xaml" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\HistoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
