@@ -13,7 +13,7 @@ namespace Shopper
     public class CloudDataStore : IDataStore<ShoppingItem>
     {
         HttpClient client;
-        IEnumerable<ShoppingItem> items;
+        List<ShoppingItem> items;
 
         public CloudDataStore()
         {
@@ -23,20 +23,20 @@ namespace Shopper
             items = new List<ShoppingItem>();
         }
 
-        public async Task<IEnumerable<ShoppingItem>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<List<ShoppingItem>> GetItemsAsync(bool forceRefresh = false)
         {
             if (forceRefresh && CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item");
-                items = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<ShoppingItem>>(json));
+                items = await Task.Run(() => JsonConvert.DeserializeObject<List<ShoppingItem>>(json));
             }
 
             return items;
         }
 
-        public async Task<ShoppingItem> GetItemAsync(string id)
+        public async Task<ShoppingItem> GetItemAsync(int id)
         {
-            if (id != null && CrossConnectivity.Current.IsConnected)
+            if (id != 0 && CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item/{id}");
                 return await Task.Run(() => JsonConvert.DeserializeObject<ShoppingItem>(json));
@@ -59,7 +59,7 @@ namespace Shopper
 
         public async Task<bool> UpdateItemAsync(ShoppingItem item)
         {
-            if (item == null || item.Id == null || !CrossConnectivity.Current.IsConnected)
+            if (item == null || item.Id == 0 || !CrossConnectivity.Current.IsConnected)
                 return false;
 
             var serializedItem = JsonConvert.SerializeObject(item);
@@ -71,9 +71,9 @@ namespace Shopper
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(int id)
         {
-            if (string.IsNullOrEmpty(id) && !CrossConnectivity.Current.IsConnected)
+            if (id == 0 && !CrossConnectivity.Current.IsConnected)
                 return false;
 
             var response = await client.DeleteAsync($"api/item/{id}");

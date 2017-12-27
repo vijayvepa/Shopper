@@ -1,19 +1,19 @@
 ﻿<Properties StartupConfiguration="{CEC00F4F-E019-447E-9E19-DAE9457644D4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="XamarinForms.Extensions/Controls/CheckBox.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Shopper/ViewModels/BaseViewModel.cs">
     <Files>
-      <File FileName="Shopper.Business/ShoppingItemsParser.cs" Line="32" Column="38" />
-      <File FileName="Shopper/Views/NewItemPage.xaml.cs" Line="22" Column="48" />
-      <File FileName="Shopper/Views/NewItemPage.xaml" Line="8" Column="39" />
-      <File FileName="Shopper/Views/TodayPage.xaml.cs" Line="4" Column="31" />
-      <File FileName="Shopper/Views/TodayPage.xaml" Line="22" Column="24" />
-      <File FileName="XamarinForms.Extensions/Controls/CheckBox.cs" Line="9" Column="40" />
+      <File FileName="iOS/LocalStorage/FileHelper.cs" Line="1" Column="1" />
+      <File FileName="Droid/LocalStorage/FileHelper.cs" Line="1" Column="1" />
+      <File FileName="Shopper/Services/LocalDataStore.cs" Line="1" Column="1" />
+      <File FileName="Shopper/Services/MockDataStore.cs" Line="9" Column="27" />
+      <File FileName="Shopper/ViewModels/BaseViewModel.cs" Line="13" Column="111" />
+      <File FileName="Shopper/Services/CloudDataStore.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Shopper.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.b1ad50cc484e8d67ee7e25bcbaf3fcb1e190f98f" />
+  <MonoDevelop.Ide.ItemProperties.Shopper.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7EF6010E-A36D-4C02-AA05-95E7B4080991" />
   <MultiItemStartupConfigurations />
 </Properties>

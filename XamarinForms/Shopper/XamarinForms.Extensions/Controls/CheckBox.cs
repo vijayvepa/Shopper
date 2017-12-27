@@ -15,6 +15,7 @@ namespace XamarinForms.Extensions.Controls
             base.BackgroundColor = Color.White;
             base.TextColor = Color.Accent;
             base.Text = NotDone;
+            base.FontSize = 40;
             base.BorderWidth = 0;
         }
 

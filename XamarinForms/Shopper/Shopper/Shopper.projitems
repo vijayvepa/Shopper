@@ -30,6 +30,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\TodayPage.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\LocalDataStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SetupPage.xaml" />

@@ -15,9 +15,9 @@ namespace Shopper
             items = new List<ShoppingItem>();
             var mockItems = new List<ShoppingItem>
             {
-                new ShoppingItem { Id = Guid.NewGuid().ToString(), Text = "Tomatoes", Store="Aldi",  Description="This is an item description." },
-                new ShoppingItem { Id = Guid.NewGuid().ToString(), Text = "Dhaniyalu", Store="Indian Store", Description="This is an item description." },
-                new ShoppingItem { Id = Guid.NewGuid().ToString(), Text = "Oreck Tune Up", Store="Oreck", Description="This is an item description." },
+                new ShoppingItem { Id = 1, Text = "Tomatoes", Store="Aldi",  Description="This is an item description." },
+                new ShoppingItem { Id = 2, Text = "Dhaniyalu", Store="Indian Store", Description="This is an item description." },
+                new ShoppingItem { Id = 3, Text = "Oreck Tune Up", Store="Oreck", Description="This is an item description." },
             };
 
             foreach (var item in mockItems)
@@ -42,7 +42,7 @@ namespace Shopper
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(int id)
         {
             var _item = items.Where((ShoppingItem arg) => arg.Id == id).FirstOrDefault();
             items.Remove(_item);
@@ -50,12 +50,12 @@ namespace Shopper
             return await Task.FromResult(true);
         }
 
-        public async Task<ShoppingItem> GetItemAsync(string id)
+        public async Task<ShoppingItem> GetItemAsync(int id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<ShoppingItem>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<List<ShoppingItem>> GetItemsAsync(bool forceRefresh = false)
         {
             return await Task.FromResult(items);
         }
