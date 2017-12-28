@@ -1,25 +1,33 @@
 ﻿<Properties StartupConfiguration="{CEC00F4F-E019-447E-9E19-DAE9457644D4}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Shopper/Views/SetupPage.xaml">
     <Files>
-      <File FileName="Shopper/Views/TodayPage.xaml" Line="28" Column="15" />
-      <File FileName="Shopper/Views/CouponsPage.xaml" Line="6" Column="1" />
+      <File FileName="Shopper/Views/TodayPage.xaml" Line="25" Column="24" />
+      <File FileName="Shopper/Views/CouponsPage.xaml" Line="2" Column="165" />
       <File FileName="Shopper/Views/CouponsPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="Shopper/Views/ReturnsPage.xaml" Line="6" Column="1" />
+      <File FileName="Shopper/Views/ReturnsPage.xaml" Line="2" Column="165" />
       <File FileName="Shopper/Views/ReturnsPage.xaml.cs" Line="1" Column="1" />
       <File FileName="Shopper/Views/SharingPage.xaml" Line="6" Column="1" />
       <File FileName="Shopper/Views/SharingPage.xaml.cs" Line="16" Column="1" />
-      <File FileName="Shopper/Views/MainPage.cs" Line="25" Column="18" />
+      <File FileName="Shopper/Views/MainPage.cs" Line="48" Column="10" />
       <File FileName="Shopper/Views/AboutPage.xaml" Line="36" Column="50" />
       <File FileName="Shopper/Views/AboutPage.xaml.cs" Line="12" Column="12" />
-      <File FileName="Shopper/Views/SetupPage.xaml" Line="6" Column="1" />
-      <File FileName="Shopper/Views/SetupPage.xaml.cs" Line="4" Column="8" />
+      <File FileName="Shopper/Views/SetupPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="Shopper/Views/TodayPage.xaml.cs" Line="23" Column="8" />
+      <File FileName="Shopper/ViewModels/SetupViewModel.cs" Line="21" Column="15" />
+      <File FileName="Shopper/ViewModels/ItemDetailViewModel.cs" Line="1" Column="1" />
+      <File FileName="Shopper/ViewModels/BaseViewModel.cs" Line="13" Column="111" />
+      <File FileName="Shopper/ViewModels/TodayViewModel.cs" Line="13" Column="70" />
+      <File FileName="Shopper.Business/Models/ShoppingItem.cs" Line="6" Column="18" />
+      <File FileName="Shopper.Business/Models/SetupItem.cs" Line="8" Column="40" />
+      <File FileName="iOS/obj/iPhone/Debug/Shopper.iOS.Views.SetupPage.xaml.g.cs" Line="23" Column="1" />
+      <File FileName="Shopper/Views/SetupPage.xaml" Line="25" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Shopper.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7EF6010E-A36D-4C02-AA05-95E7B4080991" />
+  <MonoDevelop.Ide.ItemProperties.Shopper.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.b1ad50cc484e8d67ee7e25bcbaf3fcb1e190f98f" />
   <MultiItemStartupConfigurations />
 </Properties>

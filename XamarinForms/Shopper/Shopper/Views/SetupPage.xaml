@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Shopper.SetupPage" xmlns:vm="clr-namespace:Shopper;" Title="{Binding Title}">
-    <ContentPage.Content>
-    </ContentPage.Content>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Shopper.SetupPage" xmlns:vm="clr-namespace:Shopper;" Title="Setup">
+    <StackLayout>
+        <ListView x:Name="ItemsListView" ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HasUnevenRows="true" ItemSelected="OnItemSelected" SeparatorVisibility="Default" SeparatorColor="Navy">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Text}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" Margin="10" FontSize="30" FontAttributes="Bold" />
+                            <Label Grid.Row="0" Grid.Column="1" Text="›" HorizontalTextAlignment="End" FontSize="30" Margin="10" TextColor="Navy" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

@@ -34,6 +34,7 @@
     <Compile Include="LocalStorage\iFileHelper.cs" />
     <Compile Include="LocalStorage\ShopperDatabase.cs" />
     <Compile Include="LocalStorage\DatabaseProvider.cs" />
+    <Compile Include="Models\SetupItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
