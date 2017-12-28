@@ -15,9 +15,9 @@ namespace Shopper
             items = new List<ShoppingItem>();
             var mockItems = new List<ShoppingItem>
             {
-                new ShoppingItem { Id = 1, Text = "Tomatoes", Store="Aldi",  Description="This is an item description." },
-                new ShoppingItem { Id = 2, Text = "Dhaniyalu", Store="Indian Store", Description="This is an item description." },
-                new ShoppingItem { Id = 3, Text = "Oreck Tune Up", Store="Oreck", Description="This is an item description." },
+                new ShoppingItem { Id = Guid.NewGuid().ToString(), Text = "Tomatoes", Store="Aldi",  Description="This is an item description." },
+                new ShoppingItem { Id = Guid.NewGuid().ToString(), Text = "Dhaniyalu", Store="Indian Store", Description="This is an item description." },
+                new ShoppingItem { Id = Guid.NewGuid().ToString(), Text = "Oreck Tune Up", Store="Oreck", Description="This is an item description." },
             };
 
             foreach (var item in mockItems)
@@ -42,15 +42,15 @@ namespace Shopper
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(int id)
+        public async Task<bool> DeleteItemAsync(ShoppingItem item)
         {
-            var _item = items.Where((ShoppingItem arg) => arg.Id == id).FirstOrDefault();
+            var _item = items.Where((ShoppingItem arg) => arg.Id == item.Id).FirstOrDefault();
             items.Remove(_item);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<ShoppingItem> GetItemAsync(int id)
+        public async Task<ShoppingItem> GetItemAsync(string id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }

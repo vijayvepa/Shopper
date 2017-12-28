@@ -9,6 +9,8 @@ namespace Shopper
 {
     public partial class TodayPage : ContentPage
     {
+        async void Handle_CheckedChanged(object sender, object e) => await viewModel.SaveItem(e as ShoppingItem);
+
         TodayViewModel viewModel;
 
         public TodayPage()
@@ -41,6 +43,18 @@ namespace Shopper
 
             if (viewModel.Items.Count == 0)
                 viewModel.LoadItemsCommand.Execute(null);
+        }
+
+        public void OnMore(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            DisplayAlert("More Context Action", mi.CommandParameter + " more context action", "OK");
+        }
+
+        public async void OnDelete(object sender, EventArgs e)
+        {
+            var mi = ((MenuItem)sender);
+            await viewModel.DeleteItem(mi.CommandParameter as ShoppingItem);
         }
     }
 }

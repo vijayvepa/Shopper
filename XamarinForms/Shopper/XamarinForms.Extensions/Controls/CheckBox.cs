@@ -27,6 +27,13 @@ namespace XamarinForms.Extensions.Controls
             defaultBindingMode: BindingMode.TwoWay,
             propertyChanged: CheckedValueChanged);
 
+        public static BindableProperty OwnerProperty = BindableProperty.Create(
+            propertyName: "Owner",
+            returnType: typeof(object),
+            declaringType: typeof(Checkbox),
+            defaultValue: null,
+            defaultBindingMode: BindingMode.OneWay);
+
         public Boolean? Checked
         {
             get
@@ -45,10 +52,28 @@ namespace XamarinForms.Extensions.Controls
             }
         }
 
+        public object Owner
+        {
+            get
+            {
+                if (GetValue(OwnerProperty) == null)
+                {
+                    return null;
+                }
+                return (object)GetValue(OwnerProperty);
+            }
+            set
+            {
+                SetValue(OwnerProperty, value);
+
+            }
+        }
+
+
         private static void CheckedValueChanged(BindableObject bindable, object oldValue, object newValue)
         {
 
-                Checkbox checkbox = ((Checkbox)bindable);
+            Checkbox checkbox = ((Checkbox)bindable);
             if (newValue != null && (Boolean)newValue == true)
             {
                 //((Checkbox)bindable).Image = "checkedimage.png";
@@ -62,10 +87,10 @@ namespace XamarinForms.Extensions.Controls
             }
         }
 
-        public event EventHandler CheckedChanged;
+        public event EventHandler<object> CheckedChanged;
         private void RaiseCheckedChanged()
         {
-            CheckedChanged?.Invoke(this, EventArgs.Empty);
+            CheckedChanged?.Invoke(this, Owner);
         }
 
 

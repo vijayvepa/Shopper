@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLite;
 
 namespace Shopper.Business.Models
 {
@@ -9,7 +10,8 @@ namespace Shopper.Business.Models
             Date = DateTime.Now;
         }
 
-        public int Id { get; set; }
+        [PrimaryKey]
+        public string Id { get; set; }
         public string Text { get; set; }
         public string Store { get; set; }
         public bool Done { get; set; }

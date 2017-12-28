@@ -1,11 +1,10 @@
 ﻿<Properties StartupConfiguration="{CEC00F4F-E019-447E-9E19-DAE9457644D4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Shopper/Views/SetupPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Shopper/Views/TodayPage.xaml">
     <Files>
-      <File FileName="Shopper/Views/SetupPage.xaml" Line="24" Column="4" />
-      <File FileName="Shopper/Views/SetupPage.xaml.cs" Line="6" Column="2" />
+      <File FileName="Shopper/Views/TodayPage.xaml" Line="13" Column="35" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|iPhone" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

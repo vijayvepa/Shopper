@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Shopper.TodayPage" Title="{Binding Title}"  xmlns:local="clr-namespace:XamarinForms.Extensions.Controls;assembly=XamarinForms.Extensions">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Shopper.TodayPage" Title="{Binding Title}" xmlns:local="clr-namespace:XamarinForms.Extensions.Controls;assembly=XamarinForms.Extensions">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
@@ -9,8 +9,11 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
+                            </ViewCell.ContextActions>
                             <StackLayout Padding="10" Orientation="Horizontal">
-                                <local:Checkbox Checked="{Binding Done}" WidthRequest="50" HeightRequest="50" />
+                                <local:Checkbox Checked="{Binding Done}" WidthRequest="50" HeightRequest="50" CheckedChanged="Handle_CheckedChanged" Owner="{Binding .}" />
                                 <StackLayout Orientation="Vertical">
                                     <Label Text="{Binding Text}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="30" FontAttributes="Bold" />
                                     <Label Text="{Binding Store}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />

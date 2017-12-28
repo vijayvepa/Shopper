@@ -34,9 +34,9 @@ namespace Shopper
             return items;
         }
 
-        public async Task<ShoppingItem> GetItemAsync(int id)
+        public async Task<ShoppingItem> GetItemAsync(string id)
         {
-            if (id != 0 && CrossConnectivity.Current.IsConnected)
+            if (!string.IsNullOrWhiteSpace(id) && CrossConnectivity.Current.IsConnected)
             {
                 var json = await client.GetStringAsync($"api/item/{id}");
                 return await Task.Run(() => JsonConvert.DeserializeObject<ShoppingItem>(json));
@@ -59,7 +59,7 @@ namespace Shopper
 
         public async Task<bool> UpdateItemAsync(ShoppingItem item)
         {
-            if (item == null || item.Id == 0 || !CrossConnectivity.Current.IsConnected)
+            if (item == null || string.IsNullOrWhiteSpace(item.Id) || !CrossConnectivity.Current.IsConnected)
                 return false;
 
             var serializedItem = JsonConvert.SerializeObject(item);
@@ -71,12 +71,13 @@ namespace Shopper
             return response.IsSuccessStatusCode;
         }
 
-        public async Task<bool> DeleteItemAsync(int id)
+        public async Task<bool> DeleteItemAsync(ShoppingItem item)
         {
-            if (id == 0 && !CrossConnectivity.Current.IsConnected)
+            
+            if (item == null || string.IsNullOrWhiteSpace(item.Id) || !CrossConnectivity.Current.IsConnected)
                 return false;
 
-            var response = await client.DeleteAsync($"api/item/{id}");
+            var response = await client.DeleteAsync($"api/item/{item.Id}");
 
             return response.IsSuccessStatusCode;
         }

@@ -26,17 +26,24 @@ namespace Shopper.Business.LocalStorage
             return Database.QueryAsync<ShoppingItem>("SELECT * FROM [ShoppingItem] WHERE [Done] = 0");
         }
 
-        public Task<ShoppingItem> GetItemAsync(int id)
+        public Task<ShoppingItem> GetItemAsync(string id)
         {
             return Database.Table<ShoppingItem>().Where(x => x.Id == id).FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveItemAsync(ShoppingItem item)
+        public async Task<string> SaveItemAsync(ShoppingItem item)
         {
-            if (item.Id != 0)
-                return Database.UpdateAsync(item);
+            if (!string.IsNullOrWhiteSpace(item.Id))
+            {
+                await Database.UpdateAsync(item);
+                return item.Id;
+            }
             else
-                return Database.InsertAsync(item);
+            {
+                item.Id = Guid.NewGuid().ToString();
+                await Database.InsertAsync(item);
+                return item.Id;
+            }
         }
 
         public Task<int> DeleteItemAsync(ShoppingItem item)

@@ -26,7 +26,21 @@ namespace Shopper
                 Items.Add(_item);
                 await DataStore.AddItemAsync(_item);
             });
+
+
         }
+
+        public async Task SaveItem(ShoppingItem item)
+        {
+            await DataStore.UpdateItemAsync(item);
+        }
+
+        public async Task DeleteItem(ShoppingItem item)
+        {
+            await DataStore.DeleteItemAsync(item);
+            Items.Remove(item);
+        }
+
 
         async Task ExecuteLoadItemsCommand()
         {

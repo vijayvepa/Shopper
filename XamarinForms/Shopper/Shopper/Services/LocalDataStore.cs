@@ -11,34 +11,27 @@ namespace Shopper.Services
 {
     public class LocalDataStore : IDataStore<ShoppingItem>
     {
-        
-
-        public Task<bool> AddItemAsync(ShoppingItem item)
+        public async Task<bool> AddItemAsync(ShoppingItem item)
         {
-           
-            DatabaseProvider.Database.SaveItemAsync(item);
+            var result = await DatabaseProvider.Database.SaveItemAsync(item);
+            item.Id = result;
+
+            return true;
+        }
+
+        public async Task<bool> UpdateItemAsync(ShoppingItem item)
+        {
+            await DatabaseProvider.Database.SaveItemAsync(item);
+            return true;
+        }
+
+        public Task<bool> DeleteItemAsync(ShoppingItem item)
+        {
+            DatabaseProvider.Database.DeleteItemAsync(item);
             return Task.FromResult(true);
         }
 
-        public Task<bool> UpdateItemAsync(ShoppingItem item)
-        {
-            DatabaseProvider.Database.SaveItemAsync(item);
-            return Task.FromResult(true);
-        }
-
-        public Task<bool> DeleteItemAsync(int id)
-        {
-            var item = DatabaseProvider.Database.GetItemAsync(id);
-            if (item.Result != null)
-            {
-                DatabaseProvider.Database.DeleteItemAsync(item.Result);
-                return Task.FromResult(true);
-            }
-
-            return Task.FromResult(false);
-        }
-
-        public Task<ShoppingItem> GetItemAsync(int id)
+        public Task<ShoppingItem> GetItemAsync(string id)
         {
             return DatabaseProvider.Database.GetItemAsync(id);
         }
