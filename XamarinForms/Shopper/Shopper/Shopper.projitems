@@ -53,6 +53,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Messages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\LocalCouponStore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\BaseLocalDataStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ItemDetailPage.xaml" />
