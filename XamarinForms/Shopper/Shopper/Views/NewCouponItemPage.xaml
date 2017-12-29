@@ -5,8 +5,9 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Spacing="20" Padding="15">
-            <Label Text="Enter one item per line, use hyphen for shop name and colon for expiration date"/>
-            <Editor Text="{Binding CouponText}"  VerticalOptions="FillAndExpand" Keyboard="Text"/>
+            <Label Text="Enter one item per line, use mm/dd or mm/dd/yy to enter expiration dates at the end, for example"/>
+            <Label Text="Ferrero Rocher 12/12" TextColor="Gray"/>
+            <Editor Text="{Binding CouponText}"  VerticalOptions="FillAndExpand" Keyboard="Text" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

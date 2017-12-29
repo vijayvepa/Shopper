@@ -1,17 +1,12 @@
 ﻿<Properties StartupConfiguration="{CEC00F4F-E019-447E-9E19-DAE9457644D4}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Shopper/Services/LocalCouponStore.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Shopper.Business/ShoppingItemsParser.cs">
     <Files>
-      <File FileName="Shopper/Services/LocalDataStore.cs" Line="14" Column="9" />
-      <File FileName="Shopper/Services/IDataStore.cs" Line="10" Column="20" />
-      <File FileName="Shopper/Services/BaseLocalDataStore.cs" Line="45" Column="20" />
-      <File FileName="Shopper/Services/LocalCouponStore.cs" Line="13" Column="66" />
+      <File FileName="Shopper.Business/ShoppingItemsParser.cs" Line="63" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/vijayvepakomma/AppDevelopment/ShoppingListApp/XamarinForms/Shopper/Shopper/ViewModels/CouponsViewModel.cs" relfile="Shopper/ViewModels/CouponsViewModel.cs" line="18" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.Shopper.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.b1ad50cc484e8d67ee7e25bcbaf3fcb1e190f98f" />

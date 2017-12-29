@@ -13,9 +13,9 @@
                                 <MenuItem Clicked="OnDelete" CommandParameter="{Binding .}" Text="Delete" IsDestructive="True" />
                             </ViewCell.ContextActions>
                             <StackLayout Padding="10" Orientation="Vertical">
-                                <Label Text="{Binding Text}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="30" FontAttributes="Bold" />
+                                <Label Text="{Binding Store}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="30" FontAttributes="Bold" />
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding Store}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
+                                    <Label Text="{Binding Text}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                                     <Label Text="Expires" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                                     <Label Text="{Binding Date}" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="13" />
                                 </StackLayout>
