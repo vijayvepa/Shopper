@@ -47,6 +47,12 @@
       <DependentUpon>SetupPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\SetupViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\CouponsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\NewCouponItemPage.xaml.cs">
+      <DependentUpon>NewCouponItemPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Messages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\LocalCouponStore.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ItemDetailPage.xaml" />
@@ -74,6 +80,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\SetupPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\NewCouponItemPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

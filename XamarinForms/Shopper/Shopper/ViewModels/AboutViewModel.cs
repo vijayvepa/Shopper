@@ -5,8 +5,11 @@ using Xamarin.Forms;
 
 namespace Shopper
 {
-    public class AboutViewModel : BaseViewModel
+    public class AboutViewModel 
     {
+        public string Title { get; set; }
+        public ICommand OpenWebCommand { get; }
+
         public AboutViewModel()
         {
             Title = "About";
@@ -14,6 +17,6 @@ namespace Shopper
             OpenWebCommand = new Command(() => Device.OpenUri(new Uri("https://xamarin.com/platform")));
         }
 
-        public ICommand OpenWebCommand { get; }
+
     }
 }

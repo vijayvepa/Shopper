@@ -35,6 +35,10 @@
     <Compile Include="LocalStorage\ShopperDatabase.cs" />
     <Compile Include="LocalStorage\DatabaseProvider.cs" />
     <Compile Include="Models\SetupItem.cs" />
+    <Compile Include="Models\CouponItem.cs" />
+    <Compile Include="LocalStorage\CouponDatabase.cs" />
+    <Compile Include="LocalStorage\BaseDatabase.cs" />
+    <Compile Include="Models\BaseItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

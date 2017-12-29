@@ -3,15 +3,14 @@ using SQLite;
 
 namespace Shopper.Business.Models
 {
-    public class ShoppingItem
+    public class ShoppingItem : BaseItem
     {
         public ShoppingItem()
         {
             Date = DateTime.Now;
         }
 
-        [PrimaryKey]
-        public string Id { get; set; }
+       
         public string Text { get; set; }
         public string Store { get; set; }
         public bool Done { get; set; }

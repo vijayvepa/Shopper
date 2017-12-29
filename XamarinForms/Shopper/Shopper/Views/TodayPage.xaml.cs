@@ -9,15 +9,14 @@ namespace Shopper
 {
     public partial class TodayPage : ContentPage
     {
-        async void Handle_CheckedChanged(object sender, object e) => await viewModel.SaveItem(e as ShoppingItem);
-
-        TodayViewModel viewModel;
+        
+        TodayViewModel ViewModel;
 
         public TodayPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new TodayViewModel();
+            BindingContext = ViewModel = new TodayViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -32,6 +31,11 @@ namespace Shopper
             ItemsListView.SelectedItem = null;
         }
 
+        async void Handle_CheckedChanged(object sender, object e)
+        {
+            await ViewModel.SaveItem(e as ShoppingItem);
+        }
+
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new NewItemPage());
@@ -41,20 +45,14 @@ namespace Shopper
         {
             base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)
-                viewModel.LoadItemsCommand.Execute(null);
-        }
-
-        public void OnMore(object sender, EventArgs e)
-        {
-            var mi = ((MenuItem)sender);
-            DisplayAlert("More Context Action", mi.CommandParameter + " more context action", "OK");
+            if (ViewModel.Items.Count == 0)
+                ViewModel.LoadItemsCommand.Execute(null);
         }
 
         public async void OnDelete(object sender, EventArgs e)
         {
             var mi = ((MenuItem)sender);
-            await viewModel.DeleteItem(mi.CommandParameter as ShoppingItem);
+            await ViewModel.DeleteItem(mi.CommandParameter as ShoppingItem);
         }
     }
 }
