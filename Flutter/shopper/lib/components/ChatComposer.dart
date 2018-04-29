@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shopper/content/Strings.dart';
 
 
 class ChatComposer extends StatefulWidget{
@@ -42,7 +43,7 @@ class ChatComposerState extends State<ChatComposer> {
   }
 
   Widget _getTextField(){
-    final decoration = new InputDecoration.collapsed(hintText: "Send a message");
+    final decoration = new InputDecoration.collapsed(hintText: Strings.addItem);
     final textfield= new TextField(controller: _textEditingController, onChanged: _handleChange, onSubmitted: _handleSubmitted, decoration: decoration,);
 
     return new Flexible(child: textfield);
@@ -50,12 +51,12 @@ class ChatComposerState extends State<ChatComposer> {
 
   Widget _getSendButton(){
     final margin = new EdgeInsets.symmetric(horizontal: 4.0);
-    final sendIcon = new Icon(Icons.send);
+    final sendIcon = new Icon(Icons.add_circle);
     final sendText = new Text("Send");
     final cupertinoButton = new CupertinoButton(child: sendText, onPressed: _determineIconButtonAction(),);
     final iconButton = new IconButton(icon: sendIcon, onPressed: _determineIconButtonAction(),);
 
-    final button = Theme.of(context).platform == TargetPlatform.iOS ? cupertinoButton : iconButton;
+    final button = iconButton;
 
     return new Container(margin: margin, child: button,);
   }

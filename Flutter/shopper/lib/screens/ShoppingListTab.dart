@@ -2,9 +2,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shopper/components/ChatComposer.dart';
 import 'package:shopper/components/ChatMessageListView.dart';
+import 'package:shopper/content/Strings.dart';
 
 
-class ShoppingListScreen extends StatelessWidget{
+class EventPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    final text = new Text('this is event page');
+    return new Center(child:text);
+  }
+}
+
+class ShoppingListTab extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(appBar: _getAppBar(context), body: _getBody(context),);

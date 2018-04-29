@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:shopper/screens/ShoppingListScreen.dart';
+import 'package:shopper/screens/ShoppingListTab.dart';
+import 'package:shopper/screens/TabContainerScreen.dart';
 import 'package:shopper/styles/Themes.dart';
 
 void main(){
@@ -14,7 +15,7 @@ class FriendlyChatApp extends StatelessWidget{
   Widget build(BuildContext context) {
 
     final theme = defaultTargetPlatform == TargetPlatform.iOS ? Themes.iOS : Themes.android;
-    return new MaterialApp(title: "Friendly Chat", theme: theme, home: new ShoppingListScreen(),);
+    return new MaterialApp(title: "Friendly Chat", theme: theme, home: new TabContainerScreen(),);
   }
 
 }
