@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopper/components/GlobalState.dart';
 import 'package:shopper/components/NavigationIconView.dart';
 import 'package:shopper/screens/CouponsTab.dart';
 import 'package:shopper/screens/ReceiptsTab.dart';
@@ -29,6 +30,7 @@ class TabContainerScreenState extends State<TabContainerScreen>
     _navigationIcons = _getNavigationIcons();
     _addAnimationListeners();
     _setInitialAnimationValue();
+    GlobalState.composingChanged.add((x)=>_refresh());
   }
 
   // -- NAV ICON VIEWS  //
@@ -117,10 +119,14 @@ class TabContainerScreenState extends State<TabContainerScreen>
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(bottomNavigationBar: _getBottomNavigationBar(), body: _getBody(),);
+    return new Scaffold( bottomNavigationBar: _bottomSection(), body: _getBody(),);
   }
 
   // -- BOTTOM NAV BAR //
+
+  Widget _bottomSection(){
+    return GlobalState.isComposing ? null: _getBottomNavigationBar();
+  }
 
   BottomNavigationBar _getBottomNavigationBar(){
     final List<BottomNavigationBarItem> barItems = _navigationIcons.map((x)=>x.getBarItem()).toList();
@@ -143,7 +149,8 @@ class TabContainerScreenState extends State<TabContainerScreen>
 
   Widget _getBody() {
     final stack = new Stack(children: _pages());
-    return new Center(child: stack,);
+    return stack;
+
     // return _getCurrentIcon().targetPage;
   }
 

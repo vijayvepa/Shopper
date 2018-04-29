@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shopper/components/GlobalState.dart';
 import 'package:shopper/components/ShoppingListItem.dart';
 
 class ShoppingListView extends StatefulWidget{
@@ -28,6 +29,19 @@ class ShoppingListState extends State<ShoppingListView> with TickerProviderState
   }
 
   @override
+  void initState() {
+
+    GlobalState.composingChanged.add((x)=>_refresh());
+    super.initState();
+  }
+
+  void _refresh(){
+    setState(() {
+
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final padding = new EdgeInsets.all(8.0);
 
@@ -37,7 +51,7 @@ class ShoppingListState extends State<ShoppingListView> with TickerProviderState
       reverse: true,
       itemCount: _items.length,);
 
-    return new Flexible(child: listView,);
+    return GlobalState.isComposing ? new Container(height: 40.0,) : new Flexible(child: listView,);
   }
 
   ShoppingListItem _itemBuilder(_, int index){

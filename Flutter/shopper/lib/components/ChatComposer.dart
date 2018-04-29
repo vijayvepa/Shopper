@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shopper/components/GlobalState.dart';
 import 'package:shopper/content/Strings.dart';
 
 
 class ChatComposer extends StatefulWidget{
   final ValueChanged<String> textSubmitted;
   ChatComposer({this.textSubmitted});
+
 
   @override
   State<StatefulWidget> createState() {
@@ -17,12 +19,21 @@ class ChatComposer extends StatefulWidget{
 class ChatComposerState extends State<ChatComposer> {
 
   final ValueChanged<String> textSubmitted;
+  FocusNode _focusNode = new FocusNode();
 
   ChatComposerState({this.textSubmitted});
 
   final TextEditingController _textEditingController = new TextEditingController();
-  bool _isComposing = false;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    _focusNode.addListener((){
+        if(GlobalState.isComposing)
+          return;
+        GlobalState.isComposing = _focusNode.hasFocus;
+    });
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -43,10 +54,13 @@ class ChatComposerState extends State<ChatComposer> {
   }
 
   Widget _getTextField(){
-    final decoration = new InputDecoration.collapsed(hintText: Strings.addItem);
-    final textfield= new TextField(controller: _textEditingController, onChanged: _handleChange, onSubmitted: _handleSubmitted, decoration: decoration,);
 
-    return new Flexible(child: textfield);
+    final decoration = new InputDecoration.collapsed(hintText: Strings.addItem);
+    final textfield= new TextField(controller: _textEditingController, onChanged: _handleChange, onSubmitted: _handleSubmitted,
+      focusNode: _focusNode, decoration: decoration,);
+
+
+     return new Flexible(child: textfield);
   }
 
   Widget _getSendButton(){
@@ -62,7 +76,7 @@ class ChatComposerState extends State<ChatComposer> {
   }
 
   VoidCallback _determineIconButtonAction(){
-    return _isComposing ? _onIconButtonPressed : null;
+    return GlobalState.isComposing ? _onIconButtonPressed : null;
   }
 
   void _onIconButtonPressed(){
@@ -71,16 +85,20 @@ class ChatComposerState extends State<ChatComposer> {
   }
 
   void _handleSubmitted(String value){
-    if(!_isComposing)
+    if(!GlobalState.isComposing)
       return;
 
     _textEditingController.clear();
     textSubmitted(value);
+    GlobalState.isComposing = false;
   }
 
   void _handleChange(String value){
     setState((){
-      _isComposing = value.length > 0;
-    });
+      GlobalState.isComposing = value.length > 0;
+
+     });
   }
+
+
 }

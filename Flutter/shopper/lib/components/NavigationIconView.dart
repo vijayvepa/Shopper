@@ -65,7 +65,9 @@ class NavigationIconView {
   Widget _getSlideTransition(BottomNavigationBarType type){
     const slightlyDown = const Offset(0.0, 0.02);
     final slightlyDownToCurrent = new Tween<Offset>(begin: slightlyDown, end:Offset.zero).animate(_animation);
-    return new SlideTransition(child: targetPage ?? targetPageBuilder(type), position: slightlyDownToCurrent);
+
+    final page = targetPage ?? targetPageBuilder(type);
+    return new SlideTransition(child: page, position: slightlyDownToCurrent);
   }
 
 
