@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ChatMessage extends StatelessWidget{
+class ShoppingListItem extends StatelessWidget{
   static const String _name = "Vijay";
 
   final String text;
   final AnimationController animationController;
 
-  ChatMessage({this.text, this.animationController});
+  ShoppingListItem({this.text, this.animationController});
   BuildContext _context;
 
   @override

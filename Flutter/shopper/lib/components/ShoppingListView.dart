@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shopper/components/ChatMessage.dart';
+import 'package:shopper/components/ShoppingListItem.dart';
 
-class ChatMessageListView extends StatefulWidget{
+class ShoppingListView extends StatefulWidget{
 
-  final ChatMessagesState _chatMessagesState = new ChatMessagesState();
+  final ShoppingListState _chatMessagesState = new ShoppingListState();
   @override
   State createState() => _chatMessagesState;
 
@@ -13,15 +13,15 @@ class ChatMessageListView extends StatefulWidget{
   }
 }
 
-class ChatMessagesState extends State<ChatMessageListView> with TickerProviderStateMixin{
-  final List<ChatMessage> _messages = [];
+class ShoppingListState extends State<ShoppingListView> with TickerProviderStateMixin{
+  final List<ShoppingListItem> _items = [];
 
   refresh(String text){
     final animationController = new AnimationController(vsync: this, duration: new Duration(milliseconds: 700));
-    ChatMessage message = new ChatMessage(text: text, animationController: animationController);
+    ShoppingListItem message = new ShoppingListItem(text: text, animationController: animationController);
 
     setState((){
-      _messages.insert(0, message);
+      _items.insert(0, message);
     });
 
     message.animationController.forward();
@@ -35,18 +35,18 @@ class ChatMessagesState extends State<ChatMessageListView> with TickerProviderSt
       itemBuilder: _itemBuilder,
       padding: padding,
       reverse: true,
-      itemCount: _messages.length,);
+      itemCount: _items.length,);
 
     return new Flexible(child: listView,);
   }
 
-  ChatMessage _itemBuilder(_, int index){
-    return _messages[index];
+  ShoppingListItem _itemBuilder(_, int index){
+    return _items[index];
   }
 
   @override
   void dispose(){
-    for(ChatMessage message in _messages){
+    for(ShoppingListItem message in _items){
       message.animationController.dispose();
     }
     super.dispose();

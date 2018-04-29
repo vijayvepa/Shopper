@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shopper/components/ChatComposer.dart';
-import 'package:shopper/components/ChatMessageListView.dart';
+import 'package:shopper/components/ShoppingListView.dart';
 import 'package:shopper/content/Strings.dart';
 
 
@@ -16,7 +16,7 @@ class EventPage extends StatelessWidget{
 class ShoppingListTab extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(appBar: _getAppBar(context), body: _getBody(context),);
+    return new Scaffold(body: _getBody(context),);
   }
 
   AppBar _getAppBar(BuildContext context) {
@@ -26,7 +26,7 @@ class ShoppingListTab extends StatelessWidget{
   }
 
   Widget _getBody(BuildContext context){
-    final listView = new ChatMessageListView();
+    final listView = new ShoppingListView();
     final chatComposer = new ChatComposer(textSubmitted: (x) => _onSubmit(listView, x));
     final divider = new Divider(height: 1.0);
 
@@ -41,7 +41,7 @@ class ShoppingListTab extends StatelessWidget{
     return new Container(decoration: themeBoxDecoration, child: column,);
   }
 
-  void _onSubmit(ChatMessageListView view, String text){
+  void _onSubmit(ShoppingListView view, String text){
     view.addMessage(text);
   }
 }
