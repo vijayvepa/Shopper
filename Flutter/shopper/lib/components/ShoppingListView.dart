@@ -15,23 +15,37 @@ class ShoppingListView extends StatefulWidget{
 }
 
 class ShoppingListState extends State<ShoppingListView> with TickerProviderStateMixin{
-  final List<ShoppingListItem> _items = [];
+  List<ShoppingListItem> _items = [];
+
 
   refresh(String text){
-    final animationController = new AnimationController(vsync: this, duration: new Duration(milliseconds: 700));
-    ShoppingListItem message = new ShoppingListItem(text: text, animationController: animationController);
 
     setState((){
+      AnimationController animationController = new AnimationController(vsync: this, duration: new Duration(milliseconds: 700));
+
+      if(_items.isEmpty)
+         _items = GlobalState.items.map((x)=> new ShoppingListItem(text: x, animationController: animationController,)).toList();
+
+      animationController.forward();
+
+      if(text == null)
+        return;
+      GlobalState.items.insert(0, text);
+      ShoppingListItem message = new ShoppingListItem(text: text, animationController: animationController);
+
       _items.insert(0, message);
+
+      message.animationController.forward();
     });
 
-    message.animationController.forward();
+
   }
 
   @override
   void initState() {
 
     GlobalState.composingChanged.add((x)=>_refresh());
+    refresh(null);
     super.initState();
   }
 

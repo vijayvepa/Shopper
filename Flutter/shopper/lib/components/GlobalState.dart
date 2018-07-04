@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopper/components/ShoppingListItem.dart';
 
 class GlobalState
 {
@@ -17,5 +18,7 @@ class GlobalState
     _composingHasChanged();
   }
   static List<ValueChanged<bool>> composingChanged = new List<ValueChanged<bool>>();
+
+  static List<String> items = [];
 
 }
