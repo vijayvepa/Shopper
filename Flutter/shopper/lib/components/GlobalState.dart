@@ -4,7 +4,11 @@ import 'package:shopper/components/ShoppingListItem.dart';
 class GlobalState
 {
   static bool _isComposing = false;
+
+  static bool disposed;
   static void _composingHasChanged(){
+    if(disposed)
+      return;
     if(GlobalState.composingChanged.length > 0) {
       for(var item in composingChanged){
         item(_isComposing);

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shopper/components/GlobalState.dart';
+import 'package:shopper/components/GlobalState.dart' as prefix0;
 import 'package:shopper/components/ShoppingListItem.dart';
 
 class ShoppingListView extends StatefulWidget{
@@ -44,6 +45,7 @@ class ShoppingListState extends State<ShoppingListView> with TickerProviderState
   @override
   void initState() {
 
+    GlobalState.disposed = false;
     GlobalState.composingChanged.add((x)=>_refresh());
     refresh(null);
     super.initState();
@@ -74,9 +76,18 @@ class ShoppingListState extends State<ShoppingListView> with TickerProviderState
 
   @override
   void dispose(){
+    Map disposedControllers = Map();
     for(ShoppingListItem message in _items){
-      message.animationController.dispose();
+
+      disposedControllers.putIfAbsent(message.animationController, ()=>{});
     }
+
+    for(AnimationController controller in disposedControllers.keys){
+      controller.dispose();
+    }
+
+    GlobalState.disposed = true;
+
     super.dispose();
   }
 
