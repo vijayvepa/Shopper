@@ -18,7 +18,7 @@ class PageCell: UICollectionViewCell {
     let lineSeparatorView : UIView = {
         let uiView = UIView()
 
-        uiView.backgroundColor = .red
+        uiView.backgroundColor = .orange
 
         return uiView
     }()
@@ -26,9 +26,10 @@ class PageCell: UICollectionViewCell {
     let textView: UITextView = {
 
         let textView = UITextView()
-        textView.text = "SAMPLE TEXT"
+
         textView.isEditable = false
         textView.isSelectable = false
+
         textView.contentInset = UIEdgeInsets(top: 24, left: 16, bottom: 0, right: 16)
         return textView
     }()
@@ -54,7 +55,7 @@ class PageCell: UICollectionViewCell {
 
         imageView.anchorToTop(top: topAnchor, left: leftAnchor, bottom: textView.topAnchor, right: rightAnchor)
 
-        textView.anchorWithConstantsToTop(
+        textView.anchor(
                 top: nil,
                 left: leftAnchor,
                 bottom: bottomAnchor,

@@ -20,10 +20,10 @@ extension UIView {
                      bottom: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil,
                      right: NSLayoutAnchor<NSLayoutXAxisAnchor>? = nil) {
 
-        anchorWithConstantsToTop(top: top, left: left, bottom: bottom, right: right, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
+        anchor(top: top, left: left, bottom: bottom, right: right, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
     }
 
-    func anchorWithConstantsToTop(
+    func anchor(
             top: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil,
             left: NSLayoutAnchor<NSLayoutXAxisAnchor>? = nil,
             bottom: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil,
@@ -31,7 +31,9 @@ extension UIView {
             topConstant: CGFloat = 0,
             leftConstant: CGFloat = 0,
             bottomConstant: CGFloat = 0,
-            rightConstant: CGFloat = 0) {
+            rightConstant: CGFloat = 0,
+            heightConstant: CGFloat = 0,
+            widthConstant: CGFloat = 0) {
 
         translatesAutoresizingMaskIntoConstraints = false
 
@@ -51,5 +53,12 @@ extension UIView {
             rightAnchor.constraint(equalTo: right, constant: rightConstant).isActive = true
         }
 
+        if heightConstant > 0 {
+            heightAnchor.constraint(equalToConstant: heightConstant).isActive = true
+        }
+
+        if(widthConstant > 0) {
+            widthAnchor.constraint(equalToConstant: widthConstant).isActive = true
+        }
     }
 }
