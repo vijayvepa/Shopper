@@ -15,6 +15,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        print(UIDevice.current.orientation.isLandscape)
+        
+        view.reloadInputViews()
+    }
 
 }
 
