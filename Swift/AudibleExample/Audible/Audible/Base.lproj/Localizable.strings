@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  Audible
+
+  Created by Vijay Vepakomma on 11/26/19.
+  Copyright © 2019 Vijay Vepakomma. All rights reserved.
+*/
+
+"ShareAGreatListen" = "Share a great listen";
+"ShareAGreatListenMessage" = "It's free to send your books to the people in your life.
+Every recipient's first book is on us.";
+"SendFromYourLibrary" = "Send from your library";
+"SendFromYourLibraryMessage" = "Tap the More menu next to any book. Choose \"Send this Book\"";
+"SendFromThePlayer" = "Send from the player";
+"SendFromThePlayerMessage" = "Tap the more menu in the upper corner. Choose \"Send this Book\"";

@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  Audible
+
+  Created by Vijay Vepakomma on 11/26/19.
+  Copyright © 2019 Vijay Vepakomma. All rights reserved.
+*/
+"ShareAGreatListen" = "महान अनुभव शेयर करें";
+"ShareAGreatListenMessage" = "अपने जीवन में लोगों को मुफ्त में अपनी किताबें भेजें।
+हर प्राप्तकर्ता की पहली पुस्तक मुफ्त है।";
+"SendFromYourLibrary" = "अपने लाइब्रेरी से भेजें";
+"SendFromYourLibraryMessage" = "किसी भी पुस्तक के बगल में स्थित अधिक मेनू टैप करें। \"इस पुस्तक को भेजें\" चुनें";
+"SendFromThePlayer" = "प्लेयर से भेजें";
+"SendFromThePlayerMessage" = "ऊपरी कोने में अतिरिक्त मेनू टैप करें। \"इस पुस्तक को भेजें\" चुनें";
