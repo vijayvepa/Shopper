@@ -8,14 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,
+        UICollectionViewDelegateFlowLayout {
 
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0 //no gaps
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .red
+        cv.backgroundColor = .white
         cv.dataSource = self
         cv.delegate = self
         cv.isPagingEnabled = true //snap
@@ -45,48 +46,52 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return [firstPage, secondPage, thirdPage]
 
     }()
+    
+    var pageControlConstraints: Constraints?
+    var nextButtonConstraints: Constraints?
+    var skipButtonConstraints: Constraints?
 
-    let pageControl: UIPageControl = {
+    lazy var pageControl: UIPageControl = {
         let pageControl = UIPageControl()
 
         pageControl.pageIndicatorTintColor = .lightGray
-        pageControl.numberOfPages = 3
+        pageControl.numberOfPages = pages.count + 1
         pageControl.currentPageIndicatorTintColor = .orange
 
         return pageControl
     }()
 
+    let buttonAttributes = [
+        NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .bold),
+        NSAttributedString.Key.foregroundColor: UIColor.orange
+    ]
 
-    private static func getButtonAttributes() -> [NSAttributedString.Key: NSObject] {
-        return [
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .bold),
-            NSAttributedString.Key.foregroundColor: UIColor.orange
-        ]
-    }
-
-    let skipButton: UIButton = {
+    lazy var skipButton: UIButton = {
         let skipButton = UIButton()
 
         let attributedText = NSAttributedString(
                 string: NSLocalizedString("Skip", comment: "Skip"),
-                attributes: ViewController.getButtonAttributes())
+                attributes: buttonAttributes)
 
         skipButton.setAttributedTitle(attributedText, for: .normal)
+
 
         return skipButton
     }()
 
-    let nextButton: UIButton = {
+    lazy var nextButton: UIButton = {
         let skipButton = UIButton()
 
         let attributedText = NSAttributedString(
                 string: NSLocalizedString("Next", comment: "Next"),
-                attributes: ViewController.getButtonAttributes())
+                attributes: buttonAttributes)
 
         skipButton.setAttributedTitle(attributedText, for: .normal)
 
         return skipButton
     }()
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,12 +102,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         view.addSubview(nextButton)
 
         collectionView.anchorToView(view: view)
-        pageControl.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor,
+        pageControlConstraints = pageControl.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor,
+                right:
+        view.rightAnchor,
                 topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
 
-        skipButton.anchor(top: view.topAnchor, left: view.leftAnchor, topConstant: 20, leftConstant: 0,
+        skipButtonConstraints = skipButton.anchor(top: view.topAnchor, left: view.leftAnchor, topConstant: 20, leftConstant: 0,
                 heightConstant: 50, widthConstant: 60)
-        nextButton.anchor(top: view.topAnchor, right: view.rightAnchor, topConstant: 20,
+        nextButtonConstraints = nextButton.anchor(top: view.topAnchor, right: view.rightAnchor, topConstant: 20,
                 rightConstant: 0, heightConstant: 50, widthConstant: 60)
 
         registerCells()
@@ -142,6 +149,40 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
     //endregion
+
+    //region Update Page Control Status
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+
+        let pageNumber = Int(targetContentOffset.pointee.x / view.frame.width)
+
+        pageControl.currentPage = pageNumber
+
+        if pageNumber == pages.count {
+            pageControlConstraints?.bottomConstraint?.constant = 40
+            skipButtonConstraints?.topConstraint?.constant = -40
+            nextButtonConstraints?.topConstraint?.constant = -40
+        }else{
+            pageControlConstraints?.bottomConstraint?.constant = 0
+            skipButtonConstraints?.topConstraint?.constant = 0
+            nextButtonConstraints?.topConstraint?.constant = 0
+        }
+
+        UIView.animate(
+                withDuration: 0.5,
+                delay: 0,
+                usingSpringWithDamping: 1,
+                initialSpringVelocity: 1,
+                options:  .curveEaseOut,
+                animations: {
+                    self.view.layoutIfNeeded()
+                },
+                completion: nil
+        )
+    }
+
+    //endregion
+
+
 
 }
 

@@ -20,7 +20,8 @@ extension UIView {
                      bottom: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil,
                      right: NSLayoutAnchor<NSLayoutXAxisAnchor>? = nil) {
 
-        anchor(top: top, left: left, bottom: bottom, right: right, topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
+        _ = anchor(top: top, left: left, bottom: bottom, right: right, topConstant: 0, leftConstant: 0, bottomConstant:
+        0, rightConstant: 0)
     }
 
     func anchor(
@@ -33,32 +34,42 @@ extension UIView {
             bottomConstant: CGFloat = 0,
             rightConstant: CGFloat = 0,
             heightConstant: CGFloat = 0,
-            widthConstant: CGFloat = 0) {
+            widthConstant: CGFloat = 0) -> Constraints {
 
         translatesAutoresizingMaskIntoConstraints = false
 
+        var constraints = Constraints()
+
         if let top = top {
-            topAnchor.constraint(equalTo: top, constant: topConstant).isActive = true
+            constraints.topConstraint = topAnchor.constraint(equalTo: top, constant: topConstant)
+            constraints.topConstraint?.isActive = true
         }
 
         if let left = left {
-            leftAnchor.constraint(equalTo: left, constant: leftConstant).isActive = true
+            constraints.leftConstraint = leftAnchor.constraint(equalTo: left, constant: leftConstant)
+            constraints.leftConstraint?.isActive = true
         }
 
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: bottomConstant).isActive = true
+            constraints.bottomConstraint = bottomAnchor.constraint(equalTo: bottom, constant: bottomConstant)
+            constraints.bottomConstraint?.isActive = true
         }
 
         if let right = right {
-            rightAnchor.constraint(equalTo: right, constant: rightConstant).isActive = true
+            constraints.rightConstraint = rightAnchor.constraint(equalTo: right, constant: rightConstant)
+            constraints.rightConstraint?.isActive = true
+
         }
 
         if heightConstant > 0 {
             heightAnchor.constraint(equalToConstant: heightConstant).isActive = true
         }
 
-        if(widthConstant > 0) {
+        if (widthConstant > 0) {
             widthAnchor.constraint(equalToConstant: widthConstant).isActive = true
         }
+
+
+        return constraints
     }
 }

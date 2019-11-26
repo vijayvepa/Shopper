@@ -55,7 +55,7 @@ class PageCell: UICollectionViewCell {
 
         imageView.anchorToTop(top: topAnchor, left: leftAnchor, bottom: textView.topAnchor, right: rightAnchor)
 
-        textView.anchor(
+        _ = textView.anchor(
                 top: nil,
                 left: leftAnchor,
                 bottom: bottomAnchor,
