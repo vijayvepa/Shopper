@@ -102,14 +102,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         view.addSubview(nextButton)
 
         collectionView.anchorToView(view: view)
-        pageControlConstraints = pageControl.anchor(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor,
+        pageControlConstraints = pageControl.anchorWithConstraints(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor,
                 right:
         view.rightAnchor,
                 topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
 
-        skipButtonConstraints = skipButton.anchor(top: view.topAnchor, left: view.leftAnchor, topConstant: 20, leftConstant: 0,
+        skipButtonConstraints = skipButton.anchorWithConstraints(top: view.topAnchor, left: view.leftAnchor, topConstant: 20, leftConstant: 0,
                 heightConstant: 50, widthConstant: 60)
-        nextButtonConstraints = nextButton.anchor(top: view.topAnchor, right: view.rightAnchor, topConstant: 20,
+        nextButtonConstraints = nextButton.anchorWithConstraints(top: view.topAnchor, right: view.rightAnchor, topConstant: 20,
                 rightConstant: 0, heightConstant: 50, widthConstant: 60)
 
         registerCells()
@@ -121,7 +121,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     fileprivate func registerCells() {
 
         collectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: loginCellId)
+        collectionView.register(LoginCell.self, forCellWithReuseIdentifier: loginCellId)
     }
 
     //region Collection View Delegates
@@ -133,7 +133,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         if indexPath.item == pages.count {
-            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath)
+            let loginCell = collectionView.dequeueReusableCell(withReuseIdentifier: loginCellId, for: indexPath) as! LoginCell
             return loginCell
         }
 

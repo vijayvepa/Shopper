@@ -20,11 +20,40 @@ extension UIView {
                      bottom: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil,
                      right: NSLayoutAnchor<NSLayoutXAxisAnchor>? = nil) {
 
-        _ = anchor(top: top, left: left, bottom: bottom, right: right, topConstant: 0, leftConstant: 0, bottomConstant:
+        _ = anchorWithConstraints(top: top, left: left, bottom: bottom, right: right, topConstant: 0, leftConstant: 0, bottomConstant:
         0, rightConstant: 0)
     }
 
+    func anchorToCenter(
+            centerX: NSLayoutXAxisAnchor ,
+            centerY: NSLayoutYAxisAnchor,
+            offsetFromCenter: CGFloat = 0,
+            width: CGFloat = 0,
+            height: CGFloat =  0
+    ) {
+
+        _ = anchorWithConstraints(top: centerY, topConstant: offsetFromCenter, heightConstant: height, widthConstant: width)
+        centerXAnchor.constraint(equalTo: centerX).isActive = true
+    }
+
     func anchor(
+            top: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil,
+            left: NSLayoutAnchor<NSLayoutXAxisAnchor>? = nil,
+            bottom: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil,
+            right: NSLayoutAnchor<NSLayoutXAxisAnchor>? = nil,
+            topConstant: CGFloat = 0,
+            leftConstant: CGFloat = 0,
+            bottomConstant: CGFloat = 0,
+            rightConstant: CGFloat = 0,
+            heightConstant: CGFloat = 0,
+            widthConstant: CGFloat = 0) {
+
+        _ = anchorWithConstraints(top: top, left: left, bottom: bottom, right: right, topConstant: topConstant,
+                leftConstant: leftConstant, bottomConstant: bottomConstant, rightConstant: rightConstant,
+                heightConstant: heightConstant, widthConstant: widthConstant)
+    }
+
+    func anchorWithConstraints(
             top: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil,
             left: NSLayoutAnchor<NSLayoutXAxisAnchor>? = nil,
             bottom: NSLayoutAnchor<NSLayoutYAxisAnchor>? = nil,
@@ -38,7 +67,7 @@ extension UIView {
 
         translatesAutoresizingMaskIntoConstraints = false
 
-        var constraints = Constraints()
+        let constraints = Constraints()
 
         if let top = top {
             constraints.topConstraint = topAnchor.constraint(equalTo: top, constant: topConstant)
