@@ -113,6 +113,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 rightConstant: 0, heightConstant: 50, widthConstant: 60)
 
         registerCells()
+
+        observeKeyboardNotifications()
     }
 
     let cellId: String = "cellId"
@@ -182,7 +184,55 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     //endregion
 
+    //region Hide Keyboard on Scroll
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
+
+    //endregion
 
 
+    //region Change UI when Keyboard Active
+
+    fileprivate func observeKeyboardNotifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown), name: UIResponder
+                .keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHidden), name: UIResponder
+                .keyboardWillHideNotification, object: nil)
+
+    }
+
+
+    @objc func keyboardShown(){
+        print("keyboard shown")
+
+        animateFramePosition(yPosition: -50)
+
+    }
+
+    @objc func keyboardHidden(){
+        print("keyboard hidden")
+
+        animateFramePosition(yPosition: 0)
+
+    }
+
+    private func animateFramePosition(yPosition: CGFloat) {
+        UIView.animate(
+                withDuration: 0.5,
+                delay: 0,
+                usingSpringWithDamping: 1,
+                initialSpringVelocity: 1,
+                options:  .curveEaseOut,
+                animations: {
+                    self.view.frame = CGRect(x: 0, y: yPosition, width: self.view.frame.width, height: self.view.frame
+                            .height)
+                },
+                completion: nil
+        )
+    }
+
+    //endregion
 }
 

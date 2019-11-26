@@ -11,3 +11,4 @@
 ## Other References
 
 - [Localization](https://medium.com/lean-localization/ios-localization-tutorial-938231f9f881)
+- [Keyboard Observer](https://stackoverflow.com/a/52466256)
