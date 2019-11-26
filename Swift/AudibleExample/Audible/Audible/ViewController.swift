@@ -57,10 +57,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }()
 
 
-
     private static func getButtonAttributes() -> [NSAttributedString.Key: NSObject] {
         return [
-            NSAttributedString.Key.font:  UIFont.systemFont(ofSize: 14, weight: .bold),
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .bold),
             NSAttributedString.Key.foregroundColor: UIColor.orange
         ]
     }
@@ -69,7 +68,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let skipButton = UIButton()
 
         let attributedText = NSAttributedString(
-                string: "Skip",
+                string: NSLocalizedString("Skip", comment: "Skip"),
                 attributes: ViewController.getButtonAttributes())
 
         skipButton.setAttributedTitle(attributedText, for: .normal)
@@ -81,7 +80,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let skipButton = UIButton()
 
         let attributedText = NSAttributedString(
-                string: "Next",
+                string: NSLocalizedString("Next", comment: "Next"),
                 attributes: ViewController.getButtonAttributes())
 
         skipButton.setAttributedTitle(attributedText, for: .normal)
@@ -103,8 +102,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         skipButton.anchor(top: view.topAnchor, left: view.leftAnchor, topConstant: 20, leftConstant: 0,
                 heightConstant: 50, widthConstant: 60)
-        nextButton.anchor(top: view.topAnchor,  right: view.rightAnchor, topConstant: 20,
-        rightConstant: 0, heightConstant: 50, widthConstant: 60)
+        nextButton.anchor(top: view.topAnchor, right: view.rightAnchor, topConstant: 20,
+                rightConstant: 0, heightConstant: 50, widthConstant: 60)
 
         registerCells()
     }
