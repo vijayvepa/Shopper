@@ -46,13 +46,23 @@ class PageCell: UICollectionViewCell {
 
     func setupViews() {
 
-        backgroundColor = .blue
-
-
         addSubview(imageView)
         addSubview(textView)
         addSubview(lineSeparatorView)
 
+        arrangeControls()
+
+    }
+
+    private func arrangeControls() {
+        if UIDevice.current.orientation.isLandscape {
+            layoutLandscapeMode()
+        }else{
+            layoutPortraitMode()
+        }
+    }
+
+    private func layoutPortraitMode() {
         imageView.anchorToTop(top: topAnchor, left: leftAnchor, bottom: textView.topAnchor, right: rightAnchor)
 
         textView.anchor(
@@ -66,12 +76,34 @@ class PageCell: UICollectionViewCell {
                 rightConstant: 0)
 
 
-
         lineSeparatorView.anchorToTop(top: nil, left: leftAnchor, bottom: textView.topAnchor, right: rightAnchor)
         lineSeparatorView.heightAnchor.constraint(equalToConstant: 1).isActive = true
 
         textView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
+    }
 
+    private func layoutLandscapeMode() {
+        imageView.anchorToTop(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil)
+        imageView.widthAnchor.constraint(equalToConstant: frame.width/2 ).isActive = true
+
+
+        textView.anchor(
+                top: centerYAnchor,
+                left: imageView.rightAnchor,
+                bottom: bottomAnchor,
+                right: rightAnchor,
+                topConstant: (frame.height * -0.2),
+                leftConstant: 0,
+                bottomConstant: 0,
+                rightConstant: 0)
+
+  /*
+        lineSeparatorView.anchorToTop(top: topAnchor, left: nil, bottom: bottomAnchor, right:
+        textView.leftAnchor)
+        lineSeparatorView.widthAnchor.constraint(equalToConstant: 1).isActive = true
+
+        textView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
+        */
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -118,6 +150,7 @@ class PageCell: UICollectionViewCell {
             )
 
             textView.attributedText = pageTitle
+
         }
     }
 

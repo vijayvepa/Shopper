@@ -106,7 +106,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return nextButton
     }()
 
+    //endregion
 
+    //region Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -139,6 +141,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(LoginCell.self, forCellWithReuseIdentifier: loginCellId)
     }
+    //endregion
 
     //region Collection View Delegates
 
@@ -301,7 +304,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         DispatchQueue.main.async {
             self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally,
                     animated: true)
-            self.collectionView.reloadData()
         }
     }
 
