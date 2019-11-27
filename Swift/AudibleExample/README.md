@@ -8,6 +8,7 @@
 4. [Tracking Current Page and Constraint Animations](https://www.youtube.com/watch?v=y1Jvq1PZ0gA)
 5. [Creating our Login View and Keyboard Observing](https://www.youtube.com/watch?v=rf0KWLGuvVc)
 6. [How to Implement Skip and Next Buttons](https://www.youtube.com/watch?v=hg620whO5Kc)
+7. [How to handle Landscape and Portrait Orientation](https://www.youtube.com/watch?v=YY06LNJ1mGY)
 
 ## Other References
 

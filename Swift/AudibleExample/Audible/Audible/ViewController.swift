@@ -102,36 +102,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return nextButton
     }()
 
-    @objc func goToNextPage() {
-
-        if pageControl.currentPage == pages.count {
-            return
-        }
-
-        scrollToPage(targetPage: pageControl.currentPage + 1)
-
-        moveControlsOffScreen(pageNumber: pageControl.currentPage)
-    }
-
-    private func scrollToPage(targetPage: Int) {
-
-        let indexPath = IndexPath(item: targetPage, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally,
-                animated: true)
-        pageControl.currentPage = targetPage
-    }
-
-    @objc func skipToLastPage() {
-
-        if pageControl.currentPage == pages.count {
-            return
-        }
-
-        scrollToPage(targetPage: pages.count)
-
-        moveControlsOffScreen(pageNumber: pageControl.currentPage)
-    }
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -236,7 +206,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     //endregion
 
-
     //region Change UI when Keyboard Active
 
     fileprivate func observeKeyboardNotifications() {
@@ -275,6 +244,39 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 },
                 completion: nil
         )
+    }
+
+    //endregion
+
+    //region Next and Skip Button Handling
+    @objc func goToNextPage() {
+
+        if pageControl.currentPage == pages.count {
+            return
+        }
+
+        scrollToPage(targetPage: pageControl.currentPage + 1)
+
+        moveControlsOffScreen(pageNumber: pageControl.currentPage)
+    }
+
+    private func scrollToPage(targetPage: Int) {
+
+        let indexPath = IndexPath(item: targetPage, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally,
+                animated: true)
+        pageControl.currentPage = targetPage
+    }
+
+    @objc func skipToLastPage() {
+
+        if pageControl.currentPage == pages.count {
+            return
+        }
+
+        scrollToPage(targetPage: pages.count)
+
+        moveControlsOffScreen(pageNumber: pageControl.currentPage)
     }
 
     //endregion
