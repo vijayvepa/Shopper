@@ -46,7 +46,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return [firstPage, secondPage, thirdPage]
 
     }()
-    
+
     var pageControlConstraints: Constraints?
     var nextButtonConstraints: Constraints?
     var skipButtonConstraints: Constraints?
@@ -75,22 +75,62 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         skipButton.setAttributedTitle(attributedText, for: .normal)
 
+        skipButton.addTarget(
+                self,
+                action: #selector(skipToLastPage),
+                for: UIControl.Event.touchUpInside
+        )
+
 
         return skipButton
     }()
 
     lazy var nextButton: UIButton = {
-        let skipButton = UIButton()
+        let nextButton = UIButton()
 
         let attributedText = NSAttributedString(
                 string: NSLocalizedString("Next", comment: "Next"),
                 attributes: buttonAttributes)
 
-        skipButton.setAttributedTitle(attributedText, for: .normal)
+        nextButton.setAttributedTitle(attributedText, for: .normal)
+        nextButton.addTarget(
+                self,
+                action: #selector(goToNextPage),
+                for: UIControl.Event.touchUpInside
+        )
 
-        return skipButton
+        return nextButton
     }()
 
+    @objc func goToNextPage() {
+
+        if pageControl.currentPage == pages.count {
+            return
+        }
+
+        scrollToPage(targetPage: pageControl.currentPage + 1)
+
+        moveControlsOffScreen(pageNumber: pageControl.currentPage)
+    }
+
+    private func scrollToPage(targetPage: Int) {
+
+        let indexPath = IndexPath(item: targetPage, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally,
+                animated: true)
+        pageControl.currentPage = targetPage
+    }
+
+    @objc func skipToLastPage() {
+
+        if pageControl.currentPage == pages.count {
+            return
+        }
+
+        scrollToPage(targetPage: pages.count)
+
+        moveControlsOffScreen(pageNumber: pageControl.currentPage)
+    }
 
 
     override func viewDidLoad() {
@@ -104,7 +144,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.anchorToView(view: view)
         pageControlConstraints = pageControl.anchorWithConstraints(top: nil, left: view.leftAnchor, bottom: view.bottomAnchor,
                 right:
-        view.rightAnchor,
+                view.rightAnchor,
                 topConstant: 0, leftConstant: 0, bottomConstant: 0, rightConstant: 0)
 
         skipButtonConstraints = skipButton.anchorWithConstraints(top: view.topAnchor, left: view.leftAnchor, topConstant: 20, leftConstant: 0,
@@ -159,11 +199,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
         pageControl.currentPage = pageNumber
 
+        moveControlsOffScreen(pageNumber: pageNumber)
+    }
+
+    private func moveControlsOffScreen(pageNumber: Int) {
         if pageNumber == pages.count {
             pageControlConstraints?.bottomConstraint?.constant = 40
             skipButtonConstraints?.topConstraint?.constant = -40
             nextButtonConstraints?.topConstraint?.constant = -40
-        }else{
+        } else {
             pageControlConstraints?.bottomConstraint?.constant = 0
             skipButtonConstraints?.topConstraint?.constant = 0
             nextButtonConstraints?.topConstraint?.constant = 0
@@ -174,7 +218,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 delay: 0,
                 usingSpringWithDamping: 1,
                 initialSpringVelocity: 1,
-                options:  .curveEaseOut,
+                options: .curveEaseOut,
                 animations: {
                     self.view.layoutIfNeeded()
                 },
@@ -195,7 +239,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     //region Change UI when Keyboard Active
 
-    fileprivate func observeKeyboardNotifications(){
+    fileprivate func observeKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShown), name: UIResponder
                 .keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHidden), name: UIResponder
@@ -204,14 +248,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
 
 
-    @objc func keyboardShown(){
+    @objc func keyboardShown() {
         print("keyboard shown")
 
         animateFramePosition(yPosition: -50)
 
     }
 
-    @objc func keyboardHidden(){
+    @objc func keyboardHidden() {
         print("keyboard hidden")
 
         animateFramePosition(yPosition: 0)
@@ -224,7 +268,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 delay: 0,
                 usingSpringWithDamping: 1,
                 initialSpringVelocity: 1,
-                options:  .curveEaseOut,
+                options: .curveEaseOut,
                 animations: {
                     self.view.frame = CGRect(x: 0, y: yPosition, width: self.view.frame.width, height: self.view.frame
                             .height)
