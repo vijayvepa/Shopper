@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,
         UICollectionViewDelegateFlowLayout {
 
+    //region Controls
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -102,7 +103,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return nextButton
     }()
 
+    //endregion
 
+    //region Initialization
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -135,6 +138,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         collectionView.register(PageCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.register(LoginCell.self, forCellWithReuseIdentifier: loginCellId)
     }
+    //endregion
 
     //region Collection View Delegates
 
@@ -277,6 +281,23 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         scrollToPage(targetPage: pages.count)
 
         moveControlsOffScreen(pageNumber: pageControl.currentPage)
+    }
+
+    //endregion
+
+    //region Handle Landscape Orientation
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+
+        collectionView.collectionViewLayout.invalidateLayout()
+
+
+        let indexPath = IndexPath(item: pageControl.currentPage, section: 0)
+
+        //scroll to index path after the rotation is complete
+        DispatchQueue.main.async {
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally,
+                    animated: true)
+        }
     }
 
     //endregion
