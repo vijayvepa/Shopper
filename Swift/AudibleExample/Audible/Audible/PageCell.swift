@@ -84,7 +84,13 @@ class PageCell: UICollectionViewCell {
                 return
             }
 
-            imageView.image = UIImage(named: page.imageName)
+            var imageName: String = page.imageName
+
+            if UIDevice.current.orientation.isLandscape {
+                imageName = page.landscapeImageName
+            }
+
+            imageView.image = UIImage(named: imageName)
 
             let color = UIColor(white: 0.2, alpha: 1)
             let paragraphStyle = NSMutableParagraphStyle()

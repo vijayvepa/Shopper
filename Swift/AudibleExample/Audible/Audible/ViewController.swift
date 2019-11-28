@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,
         UICollectionViewDelegateFlowLayout {
 
+    //region Controls
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -29,19 +30,22 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let firstPage = Page(
                 title: NSLocalizedString("ShareAGreatListen", comment: ""),
                 message: NSLocalizedString("ShareAGreatListenMessage", comment: ""),
-                imageName: "Dome")
+                imageName: "Dome",
+                landscapeImageName: "DomeSepia")
 
 
         let secondPage = Page(
                 title: NSLocalizedString("SendFromYourLibrary", comment: ""),
                 message: NSLocalizedString("SendFromYourLibraryMessage", comment: ""),
-                imageName: "Fountain")
+                imageName: "Fountain",
+                landscapeImageName: "FountainSepia")
 
 
         let thirdPage = Page(
                 title: NSLocalizedString("SendFromThePlayer", comment: ""),
                 message: NSLocalizedString("SendFromThePlayerMessage", comment: ""),
-                imageName: "Lake")
+                imageName: "Lake",
+                landscapeImageName: "LakeSepia")
 
         return [firstPage, secondPage, thirdPage]
 
@@ -218,9 +222,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
 
     @objc func keyboardShown() {
-        print("keyboard shown")
 
-        animateFramePosition(yPosition: -50)
+
+        let y:CGFloat = UIDevice.current.orientation.isLandscape ?  -150 : -50
+
+        print("keyboard shown \(y)" )
+
+        animateFramePosition(yPosition: y)
 
     }
 
@@ -277,6 +285,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         scrollToPage(targetPage: pages.count)
 
         moveControlsOffScreen(pageNumber: pageControl.currentPage)
+    }
+
+    //endregion
+
+    //region Handle Landscape Orientation
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+
+        collectionView.collectionViewLayout.invalidateLayout()
+
+
+        let indexPath = IndexPath(item: pageControl.currentPage, section: 0)
+
+        //scroll to index path after the rotation is complete
+        DispatchQueue.main.async {
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally,
+                    animated: true)
+            self.collectionView.reloadData()
+        }
     }
 
     //endregion
