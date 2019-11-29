@@ -14,3 +14,18 @@ struct Page{
     let imageName: String
     let landscapeImageName: String
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
