@@ -304,6 +304,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         DispatchQueue.main.async {
             self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally,
                     animated: true)
+            self.collectionView.reloadData()
         }
     }
 

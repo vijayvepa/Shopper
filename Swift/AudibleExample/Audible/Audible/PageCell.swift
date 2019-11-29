@@ -55,6 +55,12 @@ class PageCell: UICollectionViewCell {
     }
 
     private func arrangeControls() {
+
+        textView.clearConstraints()
+        imageView.clearConstraints()
+        lineSeparatorView.clearConstraints()
+
+
         if UIDevice.current.orientation.isLandscape {
             layoutLandscapeMode()
         }else{
@@ -90,20 +96,19 @@ class PageCell: UICollectionViewCell {
         textView.anchor(
                 top: centerYAnchor,
                 left: imageView.rightAnchor,
-                bottom: bottomAnchor,
+                bottom: nil,
                 right: rightAnchor,
                 topConstant: (frame.height * -0.2),
                 leftConstant: 0,
                 bottomConstant: 0,
                 rightConstant: 0)
 
-  /*
+
         lineSeparatorView.anchorToTop(top: topAnchor, left: nil, bottom: bottomAnchor, right:
         textView.leftAnchor)
         lineSeparatorView.widthAnchor.constraint(equalToConstant: 1).isActive = true
 
-        textView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.3).isActive = true
-        */
+        textView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 1).isActive = true
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -150,6 +155,8 @@ class PageCell: UICollectionViewCell {
             )
 
             textView.attributedText = pageTitle
+
+            arrangeControls()
 
         }
     }
