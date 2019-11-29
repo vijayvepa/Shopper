@@ -103,7 +103,6 @@ class PageCell: UICollectionViewCell {
                 bottomConstant: 0,
                 rightConstant: 0)
 
-
         lineSeparatorView.anchorToTop(top: topAnchor, left: nil, bottom: bottomAnchor, right:
         textView.leftAnchor)
         lineSeparatorView.widthAnchor.constraint(equalToConstant: 1).isActive = true
