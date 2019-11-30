@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,
+class LoginController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,
         UICollectionViewDelegateFlowLayout {
 
     //region Controls
