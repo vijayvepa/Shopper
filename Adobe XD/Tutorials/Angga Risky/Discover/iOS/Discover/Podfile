@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/vijayvepa/PodSpecs.git'
+
+
+platform :ios, '13.0'
+target 'Discover' do
+  use_frameworks!
+
+  pod 'SwipeViewFramework', :path => '~/Github/SwipeViewFramework/SwipeViewFramework.podspec'
+
+end
+

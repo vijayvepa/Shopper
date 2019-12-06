@@ -63,7 +63,7 @@ class PageCell: UICollectionViewCell {
 
         if UIDevice.current.orientation.isLandscape {
             layoutLandscapeMode()
-        }else{
+        } else{
             layoutPortraitMode()
         }
     }

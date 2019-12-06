@@ -7,180 +7,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Swift Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Discover" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="ViewSwiftController" customModule="Discover" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeaderBackground" translatesAutoresizingMaskIntoConstraints="NO" id="X2i-xC-Kl6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="262"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="NOC-2n-lfp"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISCOVER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xi-Rl-s9d">
-                                <rect key="frame" x="151" y="35" width="83" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ContentContainer" translatesAutoresizingMaskIntoConstraints="NO" id="4X5-LN-mNo">
-                                <rect key="frame" x="45" y="147" width="295" height="480"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JAKARTA, INDONESIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dty-90-M0z">
-                                <rect key="frame" x="79.5" y="98" width="216" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Df1-20-Qkc">
-                                <rect key="frame" x="76" y="209" width="223" height="249"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">If you are only in Jakarta for a day or even a week or more, there are bound to be places of interest to you. Jakarta is filled with sightseeing and tourist attractions, lots of shopping malls, and hidden back streets for nightlife, food, and fun.
-
-In Jakarta, you will not find it short of tourist places to visit or tourist attractions to see or things to do. Here is our list to help you out.</string>
-                                <color key="textColor" red="0.69803921568627447" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9by-VU-LP4">
-                                <rect key="frame" x="84" y="180" width="44" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="udG-te-oIr">
-                                <rect key="frame" x="79" y="543" width="209" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="2yj-lN-7ak"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="BookTicketButton">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
-                                </state>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="udG-te-oIr" firstAttribute="top" secondItem="4X5-LN-mNo" secondAttribute="bottom" constant="-84" id="3Va-iv-s27"/>
-                            <constraint firstItem="udG-te-oIr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="79" id="3aO-Qt-mps"/>
-                            <constraint firstItem="4X5-LN-mNo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="5" id="43J-tl-cLf"/>
-                            <constraint firstItem="dty-90-M0z" firstAttribute="centerY" secondItem="X2i-xC-Kl6" secondAttribute="centerY" constant="-19.5" id="67L-qb-SVk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="udG-te-oIr" secondAttribute="bottom" constant="79" id="9S7-Ot-daP"/>
-                            <constraint firstItem="4X5-LN-mNo" firstAttribute="top" secondItem="9by-VU-LP4" secondAttribute="bottom" constant="-53" id="FPu-b3-P0m"/>
-                            <constraint firstItem="0Xi-Rl-s9d" firstAttribute="centerX" secondItem="X2i-xC-Kl6" secondAttribute="centerX" constant="5" id="FxU-mL-sLE"/>
-                            <constraint firstItem="Df1-20-Qkc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="JjR-n8-swh"/>
-                            <constraint firstItem="Df1-20-Qkc" firstAttribute="top" secondItem="9by-VU-LP4" secondAttribute="bottom" constant="9" id="KrK-6Z-Uvk"/>
-                            <constraint firstItem="udG-te-oIr" firstAttribute="centerX" secondItem="Df1-20-Qkc" secondAttribute="centerX" constant="-4" id="NDd-i6-FFM"/>
-                            <constraint firstItem="4X5-LN-mNo" firstAttribute="top" secondItem="dty-90-M0z" secondAttribute="bottom" constant="22" id="PsC-Oy-baI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X2i-xC-Kl6" secondAttribute="trailing" id="XRm-hP-XJN"/>
-                            <constraint firstItem="dty-90-M0z" firstAttribute="centerX" secondItem="X2i-xC-Kl6" secondAttribute="centerX" id="an1-sC-0Hm"/>
-                            <constraint firstItem="X2i-xC-Kl6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bMw-vz-CeW"/>
-                            <constraint firstItem="udG-te-oIr" firstAttribute="centerX" secondItem="4X5-LN-mNo" secondAttribute="centerX" constant="-9" id="mND-SW-Wok"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4X5-LN-mNo" secondAttribute="bottom" constant="40" id="mw6-Dv-JcJ"/>
-                            <constraint firstItem="Df1-20-Qkc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="uAM-4v-sHI"/>
-                            <constraint firstItem="X2i-xC-Kl6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yAu-Pc-xZu"/>
-                            <constraint firstItem="0Xi-Rl-s9d" firstAttribute="centerY" secondItem="X2i-xC-Kl6" secondAttribute="centerY" constant="-85.5" id="yjQ-3B-4oi"/>
-                            <constraint firstItem="4X5-LN-mNo" firstAttribute="leading" secondItem="9by-VU-LP4" secondAttribute="trailing" constant="-83" id="zxz-Kb-UHI"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130.40000000000001" y="138.0809595202399"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="HUz-yj-AHW">
-            <objects>
-                <viewController id="Bda-12-8ut" customClass="ViewController" customModule="Discover" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="oT2-4e-GgR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeaderBackground" translatesAutoresizingMaskIntoConstraints="NO" id="5k4-hG-JP4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="262"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="375" id="Ny7-gn-F0i"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DISCOVER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZx-Ly-dW9">
-                                <rect key="frame" x="151" y="35" width="83" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JAKARTA, INDONESIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfr-Ar-qc8">
-                                <rect key="frame" x="79.5" y="98" width="216" height="27"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ContentContainer" translatesAutoresizingMaskIntoConstraints="NO" id="xJa-Cz-PxQ">
-                                <rect key="frame" x="45" y="147" width="295" height="480"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aom-NS-rTN">
-                                <rect key="frame" x="76" y="209" width="223" height="249"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">If you are only in Jakarta for a day or even a week or more, there are bound to be places of interest to you. Jakarta is filled with sightseeing and tourist attractions, lots of shopping malls, and hidden back streets for nightlife, food, and fun.
-
-In Jakarta, you will not find it short of tourist places to visit or tourist attractions to see or things to do. Here is our list to help you out.</string>
-                                <color key="textColor" red="0.69803921570000005" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHV-wS-710">
-                                <rect key="frame" x="84" y="180" width="44" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scH-LS-Vdk">
-                                <rect key="frame" x="79" y="543" width="209" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="XPL-YU-qaP"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="BookTicketButton">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="5k4-hG-JP4" firstAttribute="leading" secondItem="ehB-yM-ahJ" secondAttribute="leading" id="1a1-tE-EhU"/>
-                            <constraint firstItem="gfr-Ar-qc8" firstAttribute="centerY" secondItem="5k4-hG-JP4" secondAttribute="centerY" constant="-19.5" id="1rZ-hJ-lhf"/>
-                            <constraint firstItem="scH-LS-Vdk" firstAttribute="leading" secondItem="ehB-yM-ahJ" secondAttribute="leading" constant="79" id="F5u-ET-hbH"/>
-                            <constraint firstItem="ehB-yM-ahJ" firstAttribute="bottom" secondItem="xJa-Cz-PxQ" secondAttribute="bottom" constant="40" id="Fsq-R6-lkH"/>
-                            <constraint firstItem="aom-NS-rTN" firstAttribute="top" secondItem="ZHV-wS-710" secondAttribute="bottom" constant="9" id="HyZ-9O-1QA"/>
-                            <constraint firstItem="xJa-Cz-PxQ" firstAttribute="top" secondItem="ZHV-wS-710" secondAttribute="bottom" constant="-53" id="ICR-Ri-JXM"/>
-                            <constraint firstItem="scH-LS-Vdk" firstAttribute="centerX" secondItem="aom-NS-rTN" secondAttribute="centerX" constant="-4" id="LnV-X0-Ose"/>
-                            <constraint firstItem="TZx-Ly-dW9" firstAttribute="centerY" secondItem="5k4-hG-JP4" secondAttribute="centerY" constant="-85.5" id="Lvu-Aj-QaO"/>
-                            <constraint firstItem="scH-LS-Vdk" firstAttribute="top" secondItem="xJa-Cz-PxQ" secondAttribute="bottom" constant="-84" id="PUq-iE-ASj"/>
-                            <constraint firstItem="xJa-Cz-PxQ" firstAttribute="top" secondItem="gfr-Ar-qc8" secondAttribute="bottom" constant="22" id="Roh-eV-XIp"/>
-                            <constraint firstItem="xJa-Cz-PxQ" firstAttribute="centerX" secondItem="ehB-yM-ahJ" secondAttribute="centerX" constant="5" id="V35-vV-7p0"/>
-                            <constraint firstItem="xJa-Cz-PxQ" firstAttribute="leading" secondItem="ZHV-wS-710" secondAttribute="trailing" constant="-83" id="bUT-Ts-iWa"/>
-                            <constraint firstItem="TZx-Ly-dW9" firstAttribute="centerX" secondItem="5k4-hG-JP4" secondAttribute="centerX" constant="5" id="cQB-Kx-GP1"/>
-                            <constraint firstItem="ehB-yM-ahJ" firstAttribute="trailing" secondItem="5k4-hG-JP4" secondAttribute="trailing" id="dAq-Hv-F1I"/>
-                            <constraint firstItem="gfr-Ar-qc8" firstAttribute="centerX" secondItem="5k4-hG-JP4" secondAttribute="centerX" id="ioK-Wj-cFa"/>
-                            <constraint firstItem="aom-NS-rTN" firstAttribute="leading" secondItem="ehB-yM-ahJ" secondAttribute="leading" constant="76" id="qqi-i0-7f8"/>
-                            <constraint firstItem="ehB-yM-ahJ" firstAttribute="bottom" secondItem="scH-LS-Vdk" secondAttribute="bottom" constant="79" id="sgq-Tb-uYf"/>
-                            <constraint firstItem="aom-NS-rTN" firstAttribute="centerY" secondItem="oT2-4e-GgR" secondAttribute="centerY" id="uh4-gi-Ubx"/>
-                            <constraint firstItem="5k4-hG-JP4" firstAttribute="top" secondItem="ehB-yM-ahJ" secondAttribute="top" id="uuW-ln-CqF"/>
-                            <constraint firstItem="scH-LS-Vdk" firstAttribute="centerX" secondItem="xJa-Cz-PxQ" secondAttribute="centerX" constant="-9" id="vl9-T8-bn9"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ehB-yM-ahJ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="b79-t6-lTw" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="868" y="138"/>
-        </scene>
     </scenes>
-    <resources>
-        <image name="BookTicketButton" width="327" height="69"/>
-        <image name="ContentContainer" width="350" height="513"/>
-        <image name="HeaderBackground" width="375" height="262"/>
-    </resources>
 </document>
