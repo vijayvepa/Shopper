@@ -15,7 +15,7 @@ class PageCell: UICollectionViewCell {
         setupViews()
     }
 
-    let lineSeparatorView : UIView = {
+    let lineSeparatorView: UIView = {
         let uiView = UIView()
 
         uiView.backgroundColor = .orange
@@ -63,7 +63,7 @@ class PageCell: UICollectionViewCell {
 
         if UIDevice.current.orientation.isLandscape {
             layoutLandscapeMode()
-        } else{
+        } else {
             layoutPortraitMode()
         }
     }
@@ -90,7 +90,7 @@ class PageCell: UICollectionViewCell {
 
     private func layoutLandscapeMode() {
         imageView.anchorToTop(top: topAnchor, left: leftAnchor, bottom: bottomAnchor, right: nil)
-        imageView.widthAnchor.constraint(equalToConstant: frame.width/2 ).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: frame.width / 2).isActive = true
 
 
         textView.anchor(

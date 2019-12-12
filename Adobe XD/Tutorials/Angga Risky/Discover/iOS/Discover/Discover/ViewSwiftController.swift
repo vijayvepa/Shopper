@@ -18,7 +18,7 @@ class ViewSwiftController: SwipeView {
     }
 
     override open func configureViewCell(viewCell: UICollectionViewCell) -> UICollectionViewCell {
-        viewCell.backgroundColor = .orange
+
         return viewCell
     }
 }
