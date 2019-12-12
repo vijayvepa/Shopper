@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import SwipeViewFramework
 
 class ViewSwiftController: SwipeView {
 
-    override func getViewCells() -> [PageInfo] {
+    override open func getViewCells() -> [PageInfo] {
         return [
             PageInfo(id: "discoverPage", type: DiscoverPage.self), 
             PageInfo(id: "discoverPageYellow", type: DiscoverPageYellow.self)]
     }
 
-    override func configureViewCell(viewCell: UICollectionViewCell) -> UICollectionViewCell {
+    override open func configureViewCell(viewCell: UICollectionViewCell) -> UICollectionViewCell {
         viewCell.backgroundColor = .orange
         return viewCell
     }
