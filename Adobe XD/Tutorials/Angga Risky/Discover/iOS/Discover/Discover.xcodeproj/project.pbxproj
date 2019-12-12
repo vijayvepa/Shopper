@@ -7,14 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6B02A1954A3BCBFFC96F7755 /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B02A5004ABED2EEC9562025 /* Constraints.swift */; };
-		6B02A2E17B4BC1AF9CAAB002 /* SwipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B02A80B4D8A5CE358264260 /* SwipeView.swift */; };
 		6B02A6DF2DE0B424A792A7E1 /* DiscoverPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B02ADF8F14D416EA39AF8B5 /* DiscoverPage.swift */; };
 		6B02A7D9AC1E2C03283041C7 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6B02A78DFCB3DF4B811403A8 /* Podfile */; };
-		6B02A8BE4DCD9D1DB0539A19 /* PageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B02A28827F92A8D01A99009 /* PageInfo.swift */; };
 		6B02A98ED5CDE9A36DBB3DF6 /* DiscoverPageYellow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B02AAF572ADB42FDAA8B3DE /* DiscoverPageYellow.swift */; };
 		6B02A9BD21DE364F55768E00 /* ViewSwiftController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B02A33454ED65072171E3D6 /* ViewSwiftController.swift */; };
-		6B02AD03C227D3780B1FE361 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B02A52100726CF45B2F1BB0 /* UIViewExtensions.swift */; };
 		AA8D39A085D6459BD30E5E18 /* Pods_Discover.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B4E3FD29B7EEF9AA02D57D /* Pods_Discover.framework */; };
 		B155081F238C7B2D005AFA9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B155081E238C7B2D005AFA9D /* AppDelegate.swift */; };
 		B1550821238C7B2D005AFA9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1550820238C7B2D005AFA9D /* SceneDelegate.swift */; };
@@ -27,12 +23,8 @@
 /* Begin PBXFileReference section */
 		02B4E3FD29B7EEF9AA02D57D /* Pods_Discover.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Discover.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50A574932CEB313F0E246540 /* Pods-Discover.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Discover.release.xcconfig"; path = "Target Support Files/Pods-Discover/Pods-Discover.release.xcconfig"; sourceTree = "<group>"; };
-		6B02A28827F92A8D01A99009 /* PageInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageInfo.swift; sourceTree = "<group>"; };
 		6B02A33454ED65072171E3D6 /* ViewSwiftController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewSwiftController.swift; sourceTree = "<group>"; };
-		6B02A5004ABED2EEC9562025 /* Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
-		6B02A52100726CF45B2F1BB0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		6B02A78DFCB3DF4B811403A8 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
-		6B02A80B4D8A5CE358264260 /* SwipeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeView.swift; sourceTree = "<group>"; };
 		6B02AAF572ADB42FDAA8B3DE /* DiscoverPageYellow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverPageYellow.swift; sourceTree = "<group>"; };
 		6B02ADF8F14D416EA39AF8B5 /* DiscoverPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverPage.swift; sourceTree = "<group>"; };
 		9BFD0D564942630F099EDE46 /* Pods-Discover.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Discover.debug.xcconfig"; path = "Target Support Files/Pods-Discover/Pods-Discover.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,12 +87,8 @@
 				B1550827238C7B2F005AFA9D /* Assets.xcassets */,
 				B1550829238C7B2F005AFA9D /* LaunchScreen.storyboard */,
 				B155082C238C7B2F005AFA9D /* Info.plist */,
-				6B02A52100726CF45B2F1BB0 /* UIViewExtensions.swift */,
 				6B02ADF8F14D416EA39AF8B5 /* DiscoverPage.swift */,
 				6B02A33454ED65072171E3D6 /* ViewSwiftController.swift */,
-				6B02A5004ABED2EEC9562025 /* Constraints.swift */,
-				6B02A80B4D8A5CE358264260 /* SwipeView.swift */,
-				6B02A28827F92A8D01A99009 /* PageInfo.swift */,
 				6B02AAF572ADB42FDAA8B3DE /* DiscoverPageYellow.swift */,
 			);
 			path = Discover;
@@ -235,12 +223,8 @@
 				B1550823238C7B2D005AFA9D /* ViewController.swift in Sources */,
 				B155081F238C7B2D005AFA9D /* AppDelegate.swift in Sources */,
 				B1550821238C7B2D005AFA9D /* SceneDelegate.swift in Sources */,
-				6B02AD03C227D3780B1FE361 /* UIViewExtensions.swift in Sources */,
 				6B02A6DF2DE0B424A792A7E1 /* DiscoverPage.swift in Sources */,
 				6B02A9BD21DE364F55768E00 /* ViewSwiftController.swift in Sources */,
-				6B02A1954A3BCBFFC96F7755 /* Constraints.swift in Sources */,
-				6B02A2E17B4BC1AF9CAAB002 /* SwipeView.swift in Sources */,
-				6B02A8BE4DCD9D1DB0539A19 /* PageInfo.swift in Sources */,
 				6B02A98ED5CDE9A36DBB3DF6 /* DiscoverPageYellow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
