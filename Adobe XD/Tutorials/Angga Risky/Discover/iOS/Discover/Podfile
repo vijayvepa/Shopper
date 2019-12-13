@@ -6,7 +6,7 @@ platform :ios, '13.0'
 target 'Discover' do
   use_frameworks!
 
-  pod 'SwipeViewFramework', :path => '~/Github/SwipeViewFramework/SwipeViewFramework.podspec'
+  pod 'SwipeViewFramework', '1.0.1'
 
 end
 

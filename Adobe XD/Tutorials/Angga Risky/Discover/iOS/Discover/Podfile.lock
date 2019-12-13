@@ -1,16 +1,16 @@
 PODS:
-  - SwipeViewFramework (1.0.0)
+  - SwipeViewFramework (1.0.1)
 
 DEPENDENCIES:
-  - SwipeViewFramework (from `~/Github/SwipeViewFramework/SwipeViewFramework.podspec`)
+  - SwipeViewFramework (= 1.0.1)
 
-EXTERNAL SOURCES:
-  SwipeViewFramework:
-    :path: "~/Github/SwipeViewFramework/SwipeViewFramework.podspec"
+SPEC REPOS:
+  https://github.com/vijayvepa/PodSpecs.git:
+    - SwipeViewFramework
 
 SPEC CHECKSUMS:
-  SwipeViewFramework: 0fb528749caf227a027c02669ddbc6c9d0a6c287
+  SwipeViewFramework: 6075db06ad1c7075613919baefbc2c1bed537612
 
-PODFILE CHECKSUM: 0d30eb8010ad1b1ce7d38ef3778a8e13e0573ff1
+PODFILE CHECKSUM: ba63d0384dbc29e02c13dd9b9732a19286086a0f
 
 COCOAPODS: 1.8.4
